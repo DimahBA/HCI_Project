@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const MenuItem = ({ name, isActive, onClick }) => {
     return (
-        <li onClick={onClick} className={` px-2 ${isActive ? 'font-bold text-black border-b-4 border-black' : 'text-black border-b-1 border-black0'}`}>
+        <li onClick={onClick} className={` px-2 ${isActive ? 'font-bold text-dark border-b-4 border-dark' : 'text-dark border-b-1 border-dark'}`}>
             {name}
         </li>
     );
