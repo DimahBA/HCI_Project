@@ -1,40 +1,79 @@
 import Item from "../components/Item";
 import Filter from "../components/Filter";
-import Menu from "../components/MenuItem";
+import menuData from "../data/menu";
+import MenuTab from "../components/MenuTab";
+import React, { useState } from "react";
 
 const MenuPage = () => {
+  const { filters, categories } = menuData;
+  const [activeMenu, setActiveMenu] = useState(categories[0].name);
+  const [selectedFilters, setSelectedFilters] = useState([]);
+
+  const handleFilterToggle = (filterName) => {
+    setSelectedFilters((prev) =>
+      prev.includes(filterName)
+        ? prev.filter((f) => f !== filterName)
+        : [...prev, filterName]
+    );
+  };
+
+  const activeCategory = categories.find((cat) => cat.name === activeMenu);
+
+  const filteredItems = activeCategory?.items?.filter((item) => {
+    if (selectedFilters.length === 0) return true; // No filters = show all
+    return selectedFilters.every((filter) => item.tags?.includes(filter));
+  });
+
   return (
-    <div className="relative h-screen w-full max-w-md mx-auto bg-light flex flex-col overflow-hidden">
-      <div className="m-0 p-0 w-full overflow-x-hidden flex items-center justify-center">
-        <div className="w-full  text-center">
-          <div className=" w-full flex items-center justify-center h-24">
-            <h1 className="text-3xl font-bold font-title text-center">Menu</h1>
-          </div>
+   
+      <div className="flex flex-col items-center ">
+        <div className="w-full flex items-center justify-center h-24">
+          <h1 className="text-3xl font-bold font-title text-center">
+            {menuData.menuTitle}
+          </h1>
+        </div>
 
-          <div
-            className="items-center justify-between w-full w-autoorder-1"
-            id="navbar-search"
-          >
-            <div className="overflow-x-auto max-w-full  m-4">
-              <Menu />
-            </div>
+        {/* Menu Tabs */}
+        <MenuTab
+          categories={categories}
+          activeMenu={activeMenu}
+          setActiveMenu={setActiveMenu}
+        />
 
-            <div className="overflow-x-auto  max-w-full">
-              <ul className=" flex items-center m-0 p-0 whitespace-nowrap pl-6">
-                <Filter name="Vegetarian" />
-                <Filter name="Vegan" />
-                <Filter name="Gluten Free" />
-              </ul>
-            </div>
-          </div>
-          <ul className="mt-4">
-            <Item name="Tomato Soup" price="10" />
-            <Item name="Tomato Soup" price="10" />
-            <Item name="Tomato Soup" price="10" />
+        {/* Filters */}
+        <div className="overflow-x-auto max-w-full mt-6 ">
+          <ul className="flex items-center m-0 p-0 whitespace-nowrap">
+            {filters.map((filter) => (
+              <Filter
+                key={filter}
+                name={filter}
+                isActive={selectedFilters.includes(filter)}
+                onClick={() => handleFilterToggle(filter)}
+              />
+            ))}
           </ul>
         </div>
+
+        {/* Items */}
+        <ul className="w-full" >
+          {filteredItems.length > 0 ? (
+            filteredItems.map((item) => (
+              <Item
+                key={item.id}
+                name={item.name}
+                price={item.price}
+                image={item.imageUrl}
+                tags={item.tags}
+                description={item.description}
+              />
+            ))
+          ) : (
+            <p className="text-center text-gray-500 mt-4">
+              No items match the selected filters.
+            </p>
+          )}
+        </ul>
       </div>
-    </div>
   );
 };
 

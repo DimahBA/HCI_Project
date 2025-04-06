@@ -16,12 +16,12 @@ const HomePage = () => {
   };
 
   return (
-    <div className="relative h-screen w-full max-w-md mx-auto bg-light flex flex-col overflow-hidden">
-      {/* Header */}
+    <div>
+      {/* Header
       <div className="bg-red text-light py-3 px-4 flex justify-between items-center">
         <h1 className="text-2xl font-title">Table 24</h1>
         <button className="text-light"></button>
-      </div>
+      </div> */}
 
       {/* Main content with striped background */}
       <div
