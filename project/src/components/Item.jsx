@@ -15,13 +15,21 @@ const Item = ({ name, price, image, tags, description }) => {
 
   return (
     <li className="flex min-h-[140px] justify-between items-center p-3 bg-red m-6 rounded-xl font-body text-light">
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-3 w-full">
+        <div class="w-28 h-28  rounded-xl flex-none relative overflow-hidden">
+          <img
+            class="absolute inset-0 w-full h-full object-cover"
+            src={image}
+            alt={name}
+          />
+        </div>
+        {/* 
         <img
           src={image}
           alt={name}
-          className="w-26 h-26 object-cover rounded-xl"
-        />
-        <div className="flex flex-col items-start">
+          className="w-26 h-26 object-fill rounded-xl"
+        /> */}
+        <div className="flex flex-col items-start w-full">
           <div className="flex w-full justify-between">
             <span className="font-title text-lg text-start">{name}</span>{" "}
             <span className="pr-1 font-body font-bold text-xl">{price}€</span>
