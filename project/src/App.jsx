@@ -5,16 +5,24 @@ import MenuPage from "./pages/MenuPage";
 import HomePage from "./pages/HomePage";
 
 import { Link } from "react-router-dom";
-import TableItem from "./components/TableHeader";
+import DefaultLayout from "./components/DefaultLayout";
 
 function App() {
   return (
     <Router>
       <div className="relative h-screen w-full max-w-md mx-auto bg-light flex flex-col overflow-hidden">
-        <TableItem />
+      
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/MenuPage" element={<MenuPage />} />
+          <Route
+            path="/MenuPage"
+            e
+            element={
+              <DefaultLayout>
+                <MenuPage />
+              </DefaultLayout>
+            }
+          />
         </Routes>
       </div>
     </Router>
@@ -22,5 +30,3 @@ function App() {
 }
 
 export default App;
-
-// export default App;

@@ -72,6 +72,26 @@ const menuData = {
             "https://www.howtocook.recipes/wp-content/uploads/2021/05/Ratatouille-recipe-500x500.jpg",
           description: "Stewed vegetables in tomato and olive oil.",
         },
+        {
+          id: "ratatouille3",
+          name: "Ratatouille",
+          price: 15,
+          currency: "EUR",
+          tags: ["Vegetarian", "Vegan", "Gluten Free"],
+          imageUrl:
+            "https://www.howtocook.recipes/wp-content/uploads/2021/05/Ratatouille-recipe-500x500.jpg",
+          description: "Stewed vegetables in tomato and olive oil.",
+        },
+        {
+          id: "ratatouille2",
+          name: "Ratatouille",
+          price: 15,
+          currency: "EUR",
+          tags: ["Vegetarian", "Vegan", "Gluten Free"],
+          imageUrl:
+            "https://www.howtocook.recipes/wp-content/uploads/2021/05/Ratatouille-recipe-500x500.jpg",
+          description: "Stewed vegetables in tomato and olive oil.",
+        },
       ],
     },
     {

@@ -1,7 +1,7 @@
 // components/MenuItem.jsx (or MenuTab.jsx if that's the file)
 const MenuItem = ({ name, isActive, onClick }) => {
   return (
-    <div onClick={onClick} className="relative inline-block pb-2  ">
+    <div onClick={onClick} className="relative inline-block pb-1  ">
       <span
         className={`px-4 cursor-pointer transition-all duration-300 ease-in-out  ${
           isActive ? "font-medium text-dark  " : "text-light-dark "

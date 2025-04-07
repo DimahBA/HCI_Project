@@ -25,55 +25,54 @@ const MenuPage = () => {
   });
 
   return (
-   
-      <div className="flex flex-col items-center ">
-        <div className="w-full flex items-center justify-center h-24">
-          <h1 className="text-3xl font-bold font-title text-center">
-            {menuData.menuTitle}
-          </h1>
-        </div>
+    <div className="flex flex-col items-center ">
+      <div className="w-full flex items-center justify-center h-24">
+        <h1 className="text-3xl font-bold font-title text-center">
+          {menuData.menuTitle}
+        </h1>
+      </div>
 
-        {/* Menu Tabs */}
-        <MenuTab
-          categories={categories}
-          activeMenu={activeMenu}
-          setActiveMenu={setActiveMenu}
-        />
+      {/* Menu Tabs */}
+      <MenuTab
+        categories={categories}
+        activeMenu={activeMenu}
+        setActiveMenu={setActiveMenu}
+      />
 
-        {/* Filters */}
-        <div className="overflow-x-auto max-w-full mt-6 ">
-          <ul className="flex items-center m-0 p-0 whitespace-nowrap">
-            {filters.map((filter) => (
-              <Filter
-                key={filter}
-                name={filter}
-                isActive={selectedFilters.includes(filter)}
-                onClick={() => handleFilterToggle(filter)}
-              />
-            ))}
-          </ul>
-        </div>
-
-        {/* Items */}
-        <ul className="w-full" >
-          {filteredItems.length > 0 ? (
-            filteredItems.map((item) => (
-              <Item
-                key={item.id}
-                name={item.name}
-                price={item.price}
-                image={item.imageUrl}
-                tags={item.tags}
-                description={item.description}
-              />
-            ))
-          ) : (
-            <p className="text-center text-gray-500 mt-4">
-              No items match the selected filters.
-            </p>
-          )}
+      {/* Filters */}
+      <div className="overflow-x-auto max-w-full mt-6 ">
+        <ul className="flex items-center m-0 p-0 whitespace-nowrap">
+          {filters.map((filter) => (
+            <Filter
+              key={filter}
+              name={filter}
+              isActive={selectedFilters.includes(filter)}
+              onClick={() => handleFilterToggle(filter)}
+            />
+          ))}
         </ul>
       </div>
+
+      {/* Items */}
+      <ul>
+        {filteredItems.length > 0 ? (
+          filteredItems.map((item) => (
+            <Item
+              key={item.id}
+              name={item.name}
+              price={item.price}
+              image={item.imageUrl}
+              tags={item.tags}
+              description={item.description}
+            />
+          ))
+        ) : (
+          <p className="text-center text-gray-500 mt-4">
+            No items match the selected filters.
+          </p>
+        )}
+      </ul>
+    </div>
   );
 };
 

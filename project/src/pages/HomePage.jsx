@@ -7,6 +7,7 @@ import SmallButton from "../components/SmallButton";
 import { IoSettingsOutline } from "react-icons/io5";
 import { IoIosHelpCircleOutline } from "react-icons/io";
 import MenuIcons from "../components/MenuIcons";
+import TableHeader from "../components/TableHeader";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -16,14 +17,8 @@ const HomePage = () => {
   };
 
   return (
-    <div>
-      {/* Header
-      <div className="bg-red text-light py-3 px-4 flex justify-between items-center">
-        <h1 className="text-2xl font-title">Table 24</h1>
-        <button className="text-light"></button>
-      </div> */}
-
-      {/* Main content with striped background */}
+    <>
+      <TableHeader />
       <div
         className="flex-1 flex  flex-col p-6 bg-light"
         style={{
@@ -86,7 +81,7 @@ const HomePage = () => {
       <div className="absolute bottom-1 left-0 right-0 text-center text-xs text-gray-400">
         iPhone 16 - 2
       </div> */}
-    </div>
+    </>
   );
 };
 
