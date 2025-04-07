@@ -5,11 +5,16 @@ import Navbar from "./Navbar";
 export default function DefaultLayout({ children }) {
   return (
     <>
-      <TableHeader />
+      <div className="relative h-screen w-full max-w-md mx-auto bg-light">
+        <TableHeader />
 
-      {children}
+        {/* Main content area */}
+        <main className="pt-[80px] pb-[64px] overflow-y-auto h-full no-scrollbar">
+          {children}
+        </main>
 
-      <Navbar />
+        <Navbar />
+      </div>
     </>
   );
 }

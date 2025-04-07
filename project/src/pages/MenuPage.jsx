@@ -3,6 +3,7 @@ import Filter from "../components/Filter";
 import menuData from "../data/menu";
 import MenuTab from "../components/MenuTab";
 import React, { useState } from "react";
+import TableHeader from "../components/TableHeader";
 
 const MenuPage = () => {
   const { filters, categories } = menuData;
@@ -25,32 +26,34 @@ const MenuPage = () => {
   });
 
   return (
-    <div className="flex flex-col items-center ">
-      <div className="w-full flex items-center justify-center h-24">
-        <h1 className="text-3xl font-bold font-title text-center">
-          {menuData.menuTitle}
-        </h1>
-      </div>
+    <>
+      <div className="sticky flex flex-col justify-center items-center bg-light top-0  w-full max-w-md mx-autopy-3 px-4 pb-6 z-10">
+        <div className="w-full flex items-center justify-center h-20">
+          <h1 className="text-3xl font-bold font-title text-center">
+            {menuData.menuTitle}
+          </h1>
+        </div>
 
-      {/* Menu Tabs */}
-      <MenuTab
-        categories={categories}
-        activeMenu={activeMenu}
-        setActiveMenu={setActiveMenu}
-      />
+        {/* Menu Tabs */}
+        <MenuTab
+          categories={categories}
+          activeMenu={activeMenu}
+          setActiveMenu={setActiveMenu}
+        />
 
-      {/* Filters */}
-      <div className="overflow-x-auto max-w-full mt-6 ">
-        <ul className="flex items-center m-0 p-0 whitespace-nowrap">
-          {filters.map((filter) => (
-            <Filter
-              key={filter}
-              name={filter}
-              isActive={selectedFilters.includes(filter)}
-              onClick={() => handleFilterToggle(filter)}
-            />
-          ))}
-        </ul>
+        {/* Filters */}
+        <div className="overflow-x-auto max-w-full mt-6 ">
+          <ul className="flex items-center m-0 p-0 whitespace-nowrap">
+            {filters.map((filter) => (
+              <Filter
+                key={filter}
+                name={filter}
+                isActive={selectedFilters.includes(filter)}
+                onClick={() => handleFilterToggle(filter)}
+              />
+            ))}
+          </ul>
+        </div>
       </div>
 
       {/* Items */}
@@ -67,12 +70,12 @@ const MenuPage = () => {
             />
           ))
         ) : (
-          <p className="text-center text-gray-500 mt-4">
+          <p className="text-center text-green-dark mt-4">
             No items match the selected filters.
           </p>
         )}
       </ul>
-    </div>
+    </>
   );
 };
 

@@ -3,7 +3,7 @@ const MenuItem = ({ name, isActive, onClick }) => {
   return (
     <div onClick={onClick} className="relative inline-block pb-1  ">
       <span
-        className={`px-4 cursor-pointer transition-all duration-300 ease-in-out  ${
+        className={`px-4 transition-all duration-300 ease-in-out  ${
           isActive ? "font-medium text-dark  " : "text-light-dark "
         }`}
       >
@@ -31,7 +31,7 @@ const MenuItem = ({ name, isActive, onClick }) => {
 
 const MenuTab = ({ categories, activeMenu, setActiveMenu }) => {
   return (
-    <div className="overflow-x-auto max-w-full w-full flex  justify-center px-6">
+    <div className="overflow-x-auto max-w-full w-full flex no-scrollbar justify-center">
       <ul className="flex items-center m-0 whitespace-nowrap ">
         {categories.map((category) => (
           <MenuItem

@@ -14,13 +14,13 @@ const Filter = ({ name, isActive, onClick }) => {
   return (
     <button
       onClick={onClick}
-      className={`border-2 rounded-full mr-2 py-2 px-3 flex items-center transition ${
+      className={`border-2 rounded-full mr-2 py-1.5 px-2 flex font-normal items-center transition ${
         isActive
           ? "bg-green text-green-dark border-green-dark"
           : "border-green-dark text-green-dark"
       }`}
     >
-      <img src={imageMap[name]} alt={name} className="w-5 h-5 mr-2" />
+      <img src={imageMap[name]} alt={name} className="w-6 h-6 mr-2" />
       {name}
     </button>
   );

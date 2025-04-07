@@ -14,9 +14,9 @@ const Item = ({ name, price, image, tags, description }) => {
   const [count, setCount] = useState(0);
 
   return (
-    <li className="flex min-h-[140px] justify-between items-center p-3 bg-red m-6 rounded-xl font-body text-light">
+    <li className="flex min-h-[140px] justify-between items-center p-3 bg-red mx-6 mb-6 rounded-xl font-body text-light">
       <div className="flex items-center gap-3 w-full">
-        <div class="w-28 h-28  rounded-xl flex-none relative overflow-hidden">
+        <div class="w-27 h-27  rounded-xl flex-none relative overflow-hidden">
           <img
             class="absolute inset-0 w-full h-full object-cover"
             src={image}
@@ -44,13 +44,13 @@ const Item = ({ name, price, image, tags, description }) => {
                 Details
               </button>
               {tags?.includes("Vegetarian") && (
-                <img src={vegetarian} alt="Vegetarian" className="w-7 h-7 " />
+                <img src={vegetarian} alt="Vegetarian" className="w-6 h-6 " />
               )}
               {tags?.includes("Vegan") && (
-                <img src={vegan} alt="Vegan" className="w-7 h-7 " />
+                <img src={vegan} alt="Vegan" className="w-6 h-6 " />
               )}
               {tags?.includes("Gluten Free") && (
-                <img src={glutenFree} alt="Gluten Free" className="w-7 h-7 " />
+                <img src={glutenFree} alt="Gluten Free" className="w-6 h-6 " />
               )}
             </div>
 
