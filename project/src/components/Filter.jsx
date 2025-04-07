@@ -6,15 +6,15 @@ import vegan from "../assets/icons/vegan.svg";
 
 const imageMap = {
   "Gluten Free": glutenFree,
-  "Vegetarian": vegetarian,
-  "Vegan": vegan,
+  Vegetarian: vegetarian,
+  Vegan: vegan,
 };
 
 const Filter = ({ name, isActive, onClick }) => {
   return (
     <button
       onClick={onClick}
-      className={`border-2 rounded-full mr-2 py-1.5 px-2 flex font-normal items-center transition ${
+      className={`border-2 rounded-full py-1.5 px-2 flex font-normal items-center transition ${
         isActive
           ? "bg-green text-green-dark border-green-dark"
           : "border-green-dark text-green-dark"

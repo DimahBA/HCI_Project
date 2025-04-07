@@ -42,8 +42,8 @@ const MenuPage = () => {
         />
 
         {/* Filters */}
-        <div className="overflow-x-auto max-w-full mt-6 ">
-          <ul className="flex items-center m-0 p-0 whitespace-nowrap">
+        <div className="overflow-x-auto w-full mt-6 ">
+          <ul className="flex items-center m-0 p-0 whitespace-nowrap justify-evenly w-full gap-1">
             {filters.map((filter) => (
               <Filter
                 key={filter}
