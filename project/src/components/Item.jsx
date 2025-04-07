@@ -16,9 +16,9 @@ const Item = ({ name, price, image, tags, description }) => {
   return (
     <li className="flex min-h-[140px] justify-between items-center p-3 bg-red mx-4 mb-4 rounded-xl font-body text-light">
       <div className="flex items-center gap-3 w-full">
-        <div class="w-27 h-27  rounded-xl flex-none relative overflow-hidden">
+        <div className="w-27 h-27  rounded-xl flex-none relative overflow-hidden">
           <img
-            class="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover"
             src={image}
             alt={name}
           />
