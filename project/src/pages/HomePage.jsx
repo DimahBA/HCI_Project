@@ -13,7 +13,10 @@ const HomePage = () => {
   const navigate = useNavigate();
 
   const goToMenuPage = () => {
-    navigate("/MenuPage");
+    navigate("/menu-page");
+  };
+  const goToSetMenuPage = () => {
+    navigate("/set-menu-page");
   };
 
   return (
@@ -47,7 +50,10 @@ const HomePage = () => {
             <span className="text-2xl font-title">Menu</span>
           </button>
 
-          <button className="flex flex-col items-center justify-center bg-red text-light rounded-xl p-4 w-36 h-40 hover:border-2 hover:border-red hover:bg-light hover:text-red transition duration-300 ease-in-out">
+          <button
+            onClick={goToSetMenuPage}
+            className="flex flex-col items-center justify-center bg-red text-light rounded-xl p-4 w-36 h-40 hover:border-2 hover:border-red hover:bg-light hover:text-red transition duration-300 ease-in-out"
+          >
             <div className="flex items-center justify-center mb-2">
               {/* <DishIcon />{" "} */}
               <MenuIcons isASetMenu={true} />
@@ -63,7 +69,7 @@ const HomePage = () => {
         {/* Footer buttons */}
         <div className="absolute bottom-0 left-0 right-0 px-4">
           {/* Divider */}
-          <div className="border-t border-light-dark my-8"></div>
+          <div className="border-t rounded border-1 border-light-dark my-8"></div>
           <div className="flex justify-center gap-4 mt-auto mb-8">
             <SmallButton>
               <IoSettingsOutline className="mr-2" size={20} />

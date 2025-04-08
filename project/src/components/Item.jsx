@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 import AddButton from "./AddButton";
 import glutenFree from "../assets/icons/gluten-free2.svg";
 import vegetarian from "../assets/icons/vegetarian2.svg";
@@ -10,8 +10,8 @@ import vegan from "../assets/icons/vegan2.svg";
 //   "Tomato Soup": tomatoSoup,
 // };
 
-const Item = ({ name, price, image, tags, description }) => {
-  const [count, setCount] = useState(0);
+const Item = ({ name, price, image, tags, description, isSetMenu }) => {
+  // const [count, setCount] = useState(0);
 
   return (
     <li className="flex min-h-[140px] justify-between items-center p-3 bg-red mx-4 mb-4 rounded-xl font-body text-light">
@@ -38,24 +38,30 @@ const Item = ({ name, price, image, tags, description }) => {
           <span className="font-body text-s text-light-dark text-start">
             {description}
           </span>
-          <div className="w-full flex items-center justify-between gap-2 mt-2">
-            <div className="flex items-center justify-center gap-1.5">
-              <button className="bg-green px-4 py-0.5 rounded-xl  text-red">
-                Details
-              </button>
-              {tags?.includes("Vegetarian") && (
-                <img src={vegetarian} alt="Vegetarian" className="w-6 h-6 " />
-              )}
-              {tags?.includes("Vegan") && (
-                <img src={vegan} alt="Vegan" className="w-6 h-6 " />
-              )}
-              {tags?.includes("Gluten Free") && (
-                <img src={glutenFree} alt="Gluten Free" className="w-6 h-6 " />
-              )}
-            </div>
+          {!isSetMenu && (
+            <div className="w-full flex items-center justify-between gap-2 mt-2">
+              <div className="flex items-center justify-center gap-1.5">
+                <button className="bg-green px-4 py-0.5 rounded-xl  text-red">
+                  Details
+                </button>
+                {tags?.includes("Vegetarian") && (
+                  <img src={vegetarian} alt="Vegetarian" className="w-6 h-6 " />
+                )}
+                {tags?.includes("Vegan") && (
+                  <img src={vegan} alt="Vegan" className="w-6 h-6 " />
+                )}
+                {tags?.includes("Gluten Free") && (
+                  <img
+                    src={glutenFree}
+                    alt="Gluten Free"
+                    className="w-6 h-6 "
+                  />
+                )}
+              </div>
 
-            <AddButton />
-          </div>
+              <AddButton />
+            </div>
+          )}
         </div>
       </div>
 

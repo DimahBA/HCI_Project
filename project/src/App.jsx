@@ -4,22 +4,30 @@ import "./index.css";
 import MenuPage from "./pages/MenuPage";
 import HomePage from "./pages/HomePage";
 
-import { Link } from "react-router-dom";
 import DefaultLayout from "./components/DefaultLayout";
+import SetMenuPage from "./pages/SetMenuPage";
 
 function App() {
   return (
     <Router>
       <div className="relative h-screen w-full max-w-md mx-auto bg-light flex flex-col overflow-hidden">
-      
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route
-            path="/MenuPage"
+            path="/menu-page"
             e
             element={
               <DefaultLayout>
                 <MenuPage />
+              </DefaultLayout>
+            }
+          />
+          <Route
+            path="/set-menu-page"
+            e
+            element={
+              <DefaultLayout>
+                <SetMenuPage />
               </DefaultLayout>
             }
           />
