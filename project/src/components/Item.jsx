@@ -11,10 +11,10 @@ import vegan from "../assets/icons/vegan2.svg";
 //   "Tomato Soup": tomatoSoup,
 // };
 
-const Item = ({ name, price, image, tags, description, isSetMenu, id }) => {
+const Item = ({ name, price, image, tags, description, isSetMenu, id , date}) => {
   const navigate = useNavigate();
   // const [count, setCount] = useState(0);
-  
+
   const handleViewDetails = () => {
     navigate(`/dish/${id}`);
   };
@@ -37,20 +37,21 @@ const Item = ({ name, price, image, tags, description, isSetMenu, id }) => {
         /> */}
         <div className="flex flex-col items-start w-full">
           <div className="flex w-full justify-between">
-            <span className="font-title text-lg text-start">{name}</span>{" "}
+            <span className="font-title text-xl text-start">{name}</span>{" "}
             <span className="pr-1 font-body font-bold text-xl">{price}€</span>
           </div>
 
-          <span className="font-body text-s text-light-dark text-start">
+          <span className="font-body  text-light-dark text-start">
             {description}
           </span>
+          {date&&<p className="text-sm">{date}</p>}
           {!isSetMenu && (
             <div className="w-full flex items-center justify-between gap-2 mt-2">
               <div className="flex items-center justify-center gap-1.5">
                 <button
-                className="bg-green px-4 py-0.5 rounded-xl text-red"
-                onClick={handleViewDetails}
-              >
+                  className="bg-green px-4 py-0.5 rounded-xl text-red"
+                  onClick={handleViewDetails}
+                >
                   Details
                 </button>
                 {tags?.includes("Vegetarian") && (

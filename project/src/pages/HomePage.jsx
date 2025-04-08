@@ -13,17 +13,17 @@ const HomePage = () => {
   const navigate = useNavigate();
 
   const goToMenuPage = () => {
-    navigate("/menu-page");
+    navigate("/menu");
   };
   const goToSetMenuPage = () => {
-    navigate("/set-menu-page");
+    navigate("/set-menus");
   };
   const goToSettingsPage = () => {
     console.log("here");
-    navigate("/SettingsPage");
+    navigate("/settings");
   };
   const goToHelpPage = () => {
-    navigate("/HelpPage");
+    navigate("/help");
   };
 
   return (

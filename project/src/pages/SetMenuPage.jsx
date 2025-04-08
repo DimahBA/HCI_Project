@@ -25,6 +25,7 @@ const SetMenuPage = () => {
               price={type.price}
               image={type.imageUrl}
               description={type.description}
+              date={type.date}
             />
             <div className="border-t  border-1 rounded border-light-dark m-6"></div>
           </>
