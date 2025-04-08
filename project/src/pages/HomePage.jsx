@@ -18,6 +18,13 @@ const HomePage = () => {
   const goToSetMenuPage = () => {
     navigate("/set-menu-page");
   };
+  const goToSettingsPage = () => {
+    console.log("here");
+    navigate("/SettingsPage");
+  };
+  const goToHelpPage = () => {
+    navigate("/HelpPage");
+  };
 
   return (
     <>
@@ -71,11 +78,11 @@ const HomePage = () => {
           {/* Divider */}
           <div className="border-t rounded border-1 border-light-dark my-8"></div>
           <div className="flex justify-center gap-4 mt-auto mb-8">
-            <SmallButton>
+            <SmallButton onClick={() => goToSettingsPage()}>
               <IoSettingsOutline className="mr-2" size={20} />
               Settings
             </SmallButton>
-            <SmallButton>
+            <SmallButton onClick={() => goToHelpPage()}>
               {" "}
               <IoIosHelpCircleOutline className="mr-2" size={23} /> Need help?{" "}
             </SmallButton>

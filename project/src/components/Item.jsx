@@ -1,4 +1,5 @@
-// import { useState } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import AddButton from "./AddButton";
 import glutenFree from "../assets/icons/gluten-free2.svg";
 import vegetarian from "../assets/icons/vegetarian2.svg";
@@ -10,15 +11,20 @@ import vegan from "../assets/icons/vegan2.svg";
 //   "Tomato Soup": tomatoSoup,
 // };
 
-const Item = ({ name, price, image, tags, description, isSetMenu }) => {
+const Item = ({ name, price, image, tags, description, isSetMenu, id }) => {
+  const navigate = useNavigate();
   // const [count, setCount] = useState(0);
+  
+  const handleViewDetails = () => {
+    navigate(`/dish/${id}`);
+  };
 
   return (
     <li className="flex min-h-[140px] justify-between items-center p-3 bg-red mx-4 mb-4 rounded-xl font-body text-light">
       <div className="flex items-center gap-3 w-full">
-        <div class="w-27 h-27  rounded-xl flex-none relative overflow-hidden">
+        <div className="w-27 h-27  rounded-xl flex-none relative overflow-hidden">
           <img
-            class="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover"
             src={image}
             alt={name}
           />
@@ -41,7 +47,10 @@ const Item = ({ name, price, image, tags, description, isSetMenu }) => {
           {!isSetMenu && (
             <div className="w-full flex items-center justify-between gap-2 mt-2">
               <div className="flex items-center justify-center gap-1.5">
-                <button className="bg-green px-4 py-0.5 rounded-xl  text-red">
+                <button
+                className="bg-green px-4 py-0.5 rounded-xl text-red"
+                onClick={handleViewDetails}
+              >
                   Details
                 </button>
                 {tags?.includes("Vegetarian") && (
