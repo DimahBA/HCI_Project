@@ -9,10 +9,10 @@ export default function TableHeader() {
 
   const goToSettingsPage = () => {
     console.log("here");
-    navigate("/SettingsPage");
+    navigate("/settings");
   };
   const goToHelpPage = () => {
-    navigate("/HelpPage");
+    navigate("/help");
   };
   const goToHomePage = () => {
     navigate("/");

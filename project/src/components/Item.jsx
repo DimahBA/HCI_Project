@@ -45,7 +45,7 @@ const Item = ({
         isSetMenu && !isDinner && id === "dinner-set"
           ? "bg-light-dark pointer-events-none  text-[#7A5D34] "
           : isSetMenu && !isLunch && id === "lunch-set"
-          ? "bg-light-dark pointer-events-none"
+          ? "bg-light-dark pointer-events-none  text-[#7A5D34]"
           : "bg-red text-light-dark "
       }`}
     >
@@ -70,7 +70,7 @@ const Item = ({
           </div>
 
           <span className="font-body  text-start">{description}</span>
-          {date && <p className="text-sm">{date}</p>}
+          {date && <p className="text-sm text-light">*{date}</p>}
           {!isSetMenu && (
             <div className="w-full flex items-center justify-between gap-2 mt-2">
               <div className="flex items-center justify-center gap-1.5">
