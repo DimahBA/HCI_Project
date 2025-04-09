@@ -2,7 +2,7 @@ const menuData = {
   menuTitle: "Set Menus",
   types: [
     {
-      id: "menu1",
+      id: "lunch-set",
       name: "Lunch Set",
       imageUrl:
         "https://www.ecoleducasse.com/application/files/5317/1991/2454/TradFrenchFoodHeader.jpg",
@@ -12,7 +12,7 @@ const menuData = {
       date: "11h00 - 15h00",
     },
     {
-      id: "menu2",
+      id: "dinner-set",
       name: "Dinner Set",
       imageUrl:
         "https://amazingfoodanddrink.com/wp-content/uploads/2023/02/a-cinematic-food-photograph-of-a-gourmet_47u7Z01ySu-yxtKgKYSVQA_jOF6eEw0QtSOVAZjEqM45w.jpeg",
@@ -22,7 +22,7 @@ const menuData = {
       date: "17h00 - 22h00",
     },
     {
-      id: "menu3",
+      id: "gourmet-set",
       name: "Gourmet Set",
       imageUrl:
         "https://www.foodrepublic.com/img/gallery/never-break-this-timing-rule-when-hosting-a-dinner-party/intro-1685484681.jpg",

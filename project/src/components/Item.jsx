@@ -11,7 +11,16 @@ import vegan from "../assets/icons/vegan2.svg";
 //   "Tomato Soup": tomatoSoup,
 // };
 
-const Item = ({ name, price, image, tags, description, isSetMenu, id , date}) => {
+const Item = ({
+  name,
+  price,
+  image,
+  tags,
+  description,
+  isSetMenu,
+  id,
+  date,
+}) => {
   const navigate = useNavigate();
   // const [count, setCount] = useState(0);
 
@@ -44,7 +53,7 @@ const Item = ({ name, price, image, tags, description, isSetMenu, id , date}) =>
           <span className="font-body  text-light-dark text-start">
             {description}
           </span>
-          {date&&<p className="text-sm">{date}</p>}
+          {date && <p className="text-sm">{date}</p>}
           {!isSetMenu && (
             <div className="w-full flex items-center justify-between gap-2 mt-2">
               <div className="flex items-center justify-center gap-1.5">
