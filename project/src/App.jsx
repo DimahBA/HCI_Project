@@ -20,7 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route
-            path="/menu-page"
+            path="/menu"
             e
             element={
               <DefaultLayout>
@@ -29,7 +29,7 @@ function App() {
             }
           />
           <Route
-            path="/set-menu-page"
+            path="/set-menus"
             e
             element={
               <DefaultLayout>
@@ -38,7 +38,7 @@ function App() {
             }
           />
           <Route
-            path="/SettingsPage"
+            path="/settings"
             element={
               <DefaultLayout>
                 <SettingsPage />
@@ -46,7 +46,7 @@ function App() {
             }
           />
           <Route
-            path="/HelpPage"
+            path="/help"
             element={
               <DefaultLayout>
                 <HelpPage />

@@ -11,16 +11,44 @@ import vegan from "../assets/icons/vegan2.svg";
 //   "Tomato Soup": tomatoSoup,
 // };
 
-const Item = ({ name, price, image, tags, description, isSetMenu, id }) => {
+const Item = ({
+  name,
+  price,
+  image,
+  tags,
+  description,
+  isSetMenu,
+  id,
+  date,
+  onClick,
+}) => {
   const navigate = useNavigate();
   // const [count, setCount] = useState(0);
-  
+
   const handleViewDetails = () => {
     navigate(`/dish/${id}`);
   };
-
+  function isAvailableBetween(startHour, endHour) {
+    const now = new Date();
+    const currentHour = now.getHours();
+    return currentHour >= startHour && currentHour < endHour;
+  }
+  const isLunch = isAvailableBetween(11, 15); // 11:00 - 15:00
+  const isDinner = isAvailableBetween(17, 22); // 17:00 - 22:00
+  // console.log("isLunch", isLunch);
+  // console.log("isDinner", isDinner);
+  console.log(name);
   return (
-    <li className="flex min-h-[140px] justify-between items-center p-3 bg-red mx-4 mb-4 rounded-xl font-body text-light">
+    <li
+      onClick={onClick}
+      className={`flex min-h-[140px] justify-between items-center p-3 mx-4 mb-4 rounded-xl font-body  ${
+        isSetMenu && !isDinner && id === "dinner-set"
+          ? "bg-light-dark pointer-events-none  text-[#7A5D34] "
+          : isSetMenu && !isLunch && id === "lunch-set"
+          ? "bg-light-dark pointer-events-none  text-[#7A5D34]"
+          : "bg-red text-light-dark "
+      }`}
+    >
       <div className="flex items-center gap-3 w-full">
         <div className="w-27 h-27  rounded-xl flex-none relative overflow-hidden">
           <img
@@ -35,22 +63,21 @@ const Item = ({ name, price, image, tags, description, isSetMenu, id }) => {
           alt={name}
           className="w-26 h-26 object-fill rounded-xl"
         /> */}
-        <div className="flex flex-col items-start w-full">
-          <div className="flex w-full justify-between">
-            <span className="font-title text-lg text-start">{name}</span>{" "}
+        <div className="flex  flex-col items-start w-full">
+          <div className="flex w-full justify-between text-light">
+            <span className="font-title text-xl text-start">{name}</span>{" "}
             <span className="pr-1 font-body font-bold text-xl">{price}€</span>
           </div>
 
-          <span className="font-body text-s text-light-dark text-start">
-            {description}
-          </span>
+          <span className="font-body  text-start">{description}</span>
+          {date && <p className="text-sm text-light">*{date}</p>}
           {!isSetMenu && (
             <div className="w-full flex items-center justify-between gap-2 mt-2">
               <div className="flex items-center justify-center gap-1.5">
                 <button
-                className="bg-green px-4 py-0.5 rounded-xl text-red"
-                onClick={handleViewDetails}
-              >
+                  className="bg-green px-4 py-0.5 rounded-xl text-red"
+                  onClick={handleViewDetails}
+                >
                   Details
                 </button>
                 {tags?.includes("Vegetarian") && (
