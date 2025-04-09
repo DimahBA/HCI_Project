@@ -3,13 +3,16 @@ import Filter from "../components/Filter";
 import menuData from "../data/menu";
 import MenuTab from "../components/MenuTab";
 import React, { useState } from "react";
-import TableHeader from "../components/TableHeader";
+import { useSelector, useDispatch } from "react-redux";
+import setMenuData from "../data/setMenu";
 
 const MenuPage = () => {
   const { filters, categories } = menuData;
   const [activeMenu, setActiveMenu] = useState(categories[0].name);
   const [selectedFilters, setSelectedFilters] = useState([]);
 
+  const selectedMenuId = useSelector((state) => state.setMenu.selectedMenuId);
+  console.log("Selected Menu ID:", selectedMenuId);
   const handleFilterToggle = (filterName) => {
     setSelectedFilters((prev) =>
       prev.includes(filterName)
@@ -25,6 +28,10 @@ const MenuPage = () => {
     return selectedFilters.every((filter) => item.tags?.includes(filter));
   });
 
+  // const setMenuTags = setMenuData.types.find(
+  //   (item) => item.id === selectedMenuId
+  // ).tags;
+  console.log(categories);
   return (
     <>
       <div className="sticky flex flex-col justify-center items-center bg-light top-0  w-full max-w-md mx-autopy-3 px-4 pb-6 z-10">
@@ -36,7 +43,13 @@ const MenuPage = () => {
 
         {/* Menu Tabs */}
         <MenuTab
-          categories={categories}
+          key={categories.id}
+          categories={
+            selectedMenuId === "lunch-set" || selectedMenuId === "dinner-set"
+              ? categories.filter((cat) => cat.id !== "drinks")
+              : categories
+          }
+          // categories={categories}
           activeMenu={activeMenu}
           setActiveMenu={setActiveMenu}
         />
@@ -64,7 +77,7 @@ const MenuPage = () => {
               key={item.id}
               id={item.id}
               name={item.name}
-              price={item.price}
+              price={selectedMenuId ? "" : item.price}
               image={item.imageUrl}
               tags={item.tags}
               description={item.description}
