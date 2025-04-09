@@ -10,15 +10,18 @@ import vegan from "../assets/icons/vegan2.svg";
 // const imageMap = {
 //   "Tomato Soup": tomatoSoup,
 // };
-
+//name, price, image, description,
 const Item = ({
-  name,
-  price,
-  image,
+  menuItems,
+  // name,
+  // price,
+  // image,
+  // description,
   tags,
-  description,
+
   isSetMenu,
-  id,
+  isSetSelected,
+
   date,
   onClick,
 }) => {
@@ -35,9 +38,12 @@ const Item = ({
   }
   const isLunch = isAvailableBetween(11, 15); // 11:00 - 15:00
   const isDinner = isAvailableBetween(17, 22); // 17:00 - 22:00
-  // console.log("isLunch", isLunch);
-  // console.log("isDinner", isDinner);
-  console.log(name);
+  const { name, price, image, description, id, type } = menuItems;
+  //dispatch
+  // // const dispatch = useDispatch();
+  // const addToCart = (item) => {
+  //   console.log("Added to cart:", item);
+  // };
   return (
     <li
       onClick={onClick}
@@ -95,7 +101,7 @@ const Item = ({
                 )}
               </div>
 
-              <AddButton />
+              <AddButton menuItems={menuItems} isSetSelected={isSetSelected} />
             </div>
           )}
         </div>

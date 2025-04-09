@@ -15,6 +15,7 @@ const menuData = {
           imageUrl:
             "https://images.unsplash.com/photo-1549203438-a7696aed4dac?q=80&w=2600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
           description: "Onion soup with toasted bread and melted cheese.",
+          type: "starter",
         },
         {
           id: "escargots_de_bourgogne",
@@ -25,6 +26,7 @@ const menuData = {
           imageUrl:
             "https://img.cuisineaz.com/660x495/2015/03/11/i76167-escargots-de-bourgogne-au-thym.webp",
           description: "Snails baked in garlic and herb butter.",
+          type: "starter",
         },
         {
           id: "salade_lyonnaise",
@@ -35,6 +37,7 @@ const menuData = {
           imageUrl:
             "https://fgdjrynm.filerobot.com/recipes/736d80b8749df676386af56fd3ee975e0aaff89c3d0006c8bd4d41cf192e9a46.jpg?vh=450277&h=800&w=800&q=60",
           description: "Warm frisée with bacon, croutons, and poached egg.",
+          type: "starter",
         },
       ],
     },
@@ -51,6 +54,7 @@ const menuData = {
           imageUrl:
             "https://img-3.journaldesfemmes.fr/oVCXZsSN4hDwBWH_Gi-aJYE06tE=/800x600/d5bc2b8de40e429ba48a3393206fb4fd/ccmcms-jdf/39884634.jpg",
           description: "Beef stew in red wine with mushrooms and carrots.",
+          type: "main",
         },
         {
           id: "coq_au_vin",
@@ -61,6 +65,7 @@ const menuData = {
           imageUrl:
             "https://static01.nyt.com/images/2023/08/24/multimedia/MC-Coq-Au-Van-ctpm/MC-Coq-Au-Van-ctpm-videoSixteenByNineJumbo1600.jpg",
           description: "Chicken braised in wine with bacon and onions.",
+          type: "main",
         },
         {
           id: "ratatouille",
@@ -71,9 +76,11 @@ const menuData = {
           imageUrl:
             "https://www.howtocook.recipes/wp-content/uploads/2021/05/Ratatouille-recipe-500x500.jpg",
           description: "Stewed vegetables in tomato and olive oil.",
+
+          type: "main",
         },
         {
-          id: "ratatouille3",
+          id: "ratatouille",
           name: "Ratatouille",
           price: 15,
           currency: "EUR",
@@ -81,9 +88,11 @@ const menuData = {
           imageUrl:
             "https://www.howtocook.recipes/wp-content/uploads/2021/05/Ratatouille-recipe-500x500.jpg",
           description: "Stewed vegetables in tomato and olive oil.",
+
+          type: "main",
         },
         {
-          id: "ratatouille2",
+          id: "ratatouille",
           name: "Ratatouille",
           price: 15,
           currency: "EUR",
@@ -91,6 +100,8 @@ const menuData = {
           imageUrl:
             "https://www.howtocook.recipes/wp-content/uploads/2021/05/Ratatouille-recipe-500x500.jpg",
           description: "Stewed vegetables in tomato and olive oil.",
+
+          type: "main",
         },
       ],
     },
@@ -107,6 +118,8 @@ const menuData = {
           imageUrl:
             "https://img.cuisineaz.com/660x660/2014/08/07/i31454-photo-de-creme-brulee.jpeg",
           description: "Vanilla custard with caramelized sugar top.",
+
+          type: "dessert",
         },
         {
           id: "tarte_tatin",
@@ -117,6 +130,8 @@ const menuData = {
           imageUrl:
             "https://assets.afcdn.com/recipe/20180503/79001_w1024h1024c1cx2880cy1920.jpg",
           description: "Caramelized upside-down apple tart.",
+
+          type: "dessert",
         },
         {
           id: "mousse_au_chocolat",
@@ -127,6 +142,8 @@ const menuData = {
           imageUrl:
             "https://kissmychef.com/wp-content/uploads/2021/04/mousse.png",
           description: "Light and airy dark chocolate mousse.",
+
+          type: "dessert",
         },
       ],
     },
@@ -143,6 +160,8 @@ const menuData = {
           imageUrl:
             "https://needfrench.com/wp-content/uploads/2023/08/Cafe-Noir-.jpg",
           description: "Freshly brewed espresso.",
+
+          type: "drink",
         },
         {
           id: "vin_rouge",
@@ -153,6 +172,8 @@ const menuData = {
           imageUrl:
             "https://www.gerard-bertrand.com/cdn/shop/products/banyuls-vintage-rouge_fb23eb05-021d-4f20-99a2-ed8f5ded730d.jpg?v=1590151282&width=600",
           description: "Glass of French red wine.",
+
+          type: "drink",
         },
         {
           id: "vin_blanc",
@@ -163,6 +184,7 @@ const menuData = {
           imageUrl:
             "https://www.gerard-bertrand.com/cdn/shop/products/chateau-de-villemajou-grand-vin-blanc_17ce63ba-d5b6-4956-bc1c-5255298df152.jpg?v=1590151442&width=600",
           description: "Glass of French white wine.",
+          type: "drink",
         },
       ],
     },
@@ -170,5 +192,3 @@ const menuData = {
 };
 
 export default menuData;
-
-

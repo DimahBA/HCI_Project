@@ -74,13 +74,22 @@ const MenuPage = () => {
         {filteredItems.length > 0 ? (
           filteredItems.map((item) => (
             <Item
+              // name, price, image, description,
+              menuItems={{
+                name: item.name,
+                price: selectedMenuId ? "" : item.price,
+                image: item.imageUrl,
+                description: item.description,
+                id: item.id,
+                type: item.type,
+              }}
               key={item.id}
-              id={item.id}
-              name={item.name}
-              price={selectedMenuId ? "" : item.price}
-              image={item.imageUrl}
               tags={item.tags}
-              description={item.description}
+              isSetSelected={selectedMenuId ? true : false}
+              // name={item.name}
+              // price={selectedMenuId ? "" : item.price}
+              // image={item.imageUrl}
+              // description={item.description}
             />
           ))
         ) : (

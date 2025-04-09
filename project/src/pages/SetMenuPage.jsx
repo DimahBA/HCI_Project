@@ -31,12 +31,15 @@ const SetMenuPage = () => {
             <Item
               onClick={() => setSelectedMenu(type.id)}
               isSetMenu={true}
-              name={type.name}
-              price={type.price}
-              image={type.imageUrl}
-              description={type.description}
+              menuItems={{
+                name: type.name,
+                price: selectedMenuId ? "" : type.price,
+                image: type.imageUrl,
+                description: type.description,
+                id: type.id,
+                
+              }}
               date={type.date}
-              id={type.id}
             />
             <div className="border-t  border-1 rounded border-light-dark m-6"></div>
           </div>

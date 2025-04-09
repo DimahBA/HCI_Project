@@ -64,7 +64,7 @@ function App() {
             }
           />
           <Route
-            path="/CartPage"
+            path="/cart"
             element={
               <DefaultLayout>
                 <CartPage />
