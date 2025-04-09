@@ -1,11 +1,9 @@
 import menuData from "../data/menu";
-import Item from "../components/Item";
 import Button from "../components/Button";
 import { useSelector } from "react-redux";
+import CartItem from "../components/CartItem";
 
 const CartPage = () => {
-  const allItems = menuData.categories.flatMap((category) => category.items);
-  const firstThreeItems = allItems.slice(0, 3);
   // notes: for the item, needs to be thinner
   // so todo: make a isCart thingy without detail button and smaller (pic smaller)
   // also should we add a arrow down button?
@@ -13,35 +11,37 @@ const CartPage = () => {
   console.log("Cart Items", cartItems);
   return (
     <>
-      <h1 className="text-4xl font-bold text-center mb-4">My Cart</h1>
+      <h1 className="text-4xl font-bold font-title text-center mt-10 mb-6">
+        My Cart
+      </h1>
 
-      <ul className="flex flex-col gap-4">
+      <div className="flex flex-col gap-0">
         <div className="border-t border-1 rounded border-light-dark mx-4 "></div>
-
-        {firstThreeItems.map((item) => (
-          <li key={item.id}>
-            <Item
-              isSetMenu={false}
-              name={item.name}
-              price={item.price}
-              image={item.imageUrl}
-            />
-          </li>
-        ))}
-      </ul>
+        {cartItems.length === 0 ? (
+          <p className="text-center font-body text-[var(--color-dark)]">
+            Your cart is empty.
+          </p>
+        ) : (
+          <>
+            {cartItems.map((item) => (
+              <CartItem key={item.id + "-" + item.menu} item={item} />
+            ))}
+          </>
+        )}
+      </div>
       <div className="mb-4">
         <label
           for="text"
-          class="block ml-6 mb-2 text-xl font-medium text-dark "
+          className="block ml-6 mb-2 text-xl font-medium text-dark "
         >
           Notes for the chef
         </label>
 
-        <div class="ml-6 mr-6">
+        <div className="ml-6 mr-6">
           <input
             type="text"
             id="text"
-            class="border border-dark placeholder-light-dark text-dark text-sm rounded-lg focus:ring-red focus:border-red block w-full h-16 p-2.5"
+            className="border border-dark placeholder-light-dark text-dark text-sm rounded-lg focus:ring-red focus:border-red block w-full h-16 p-2.5"
             placeholder="Write if you have some notes"
             required
           />
@@ -54,8 +54,8 @@ const CartPage = () => {
       </div>
 
       <div className="flex justify-center gap-4">
-        <Button text="Add more" />
-        <Button text="Order" />
+        <Button>Add more</Button>
+        <Button>Order</Button>
       </div>
     </>
   );

@@ -5,13 +5,27 @@ import MenuTab from "../components/MenuTab";
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import setMenuData from "../data/setMenu";
+import SetMenuSummary from "../components/SetMenuSummary ";
+import { setSetMenuItem } from "../slices/setMenuSlice";
 
 const MenuPage = () => {
-  const { filters, categories } = menuData;
+  const { categories, filters, menuTitle } = menuData;
+
   const [activeMenu, setActiveMenu] = useState(categories[0].name);
   const [selectedFilters, setSelectedFilters] = useState([]);
 
   const selectedMenuId = useSelector((state) => state.setMenu.selectedMenuId);
+
+  const dispatch = useDispatch();
+
+  // Get allowed categories based on the active set menu.
+  const allowedCategoriesMap = {
+    "lunch-set": ["starter", "main", "drink"],
+    "dinner-set": ["starter", "main", "drink"],
+    "gourmet-set": ["starter", "main", "dessert", "drink"],
+  };
+  const allowedCategories = allowedCategoriesMap[selectedMenuId];
+
   console.log("Selected Menu ID:", selectedMenuId);
   const handleFilterToggle = (filterName) => {
     setSelectedFilters((prev) =>
@@ -22,6 +36,12 @@ const MenuPage = () => {
   };
 
   const activeCategory = categories.find((cat) => cat.name === activeMenu);
+  const handleSelectDish = (item) => {
+    // Only update if the item type is allowed in the set menu.
+    if (allowedCategories && allowedCategories.includes(item.type)) {
+      dispatch(setSetMenuItem({ category: item.type, item }));
+    }
+  };
 
   const filteredItems = activeCategory?.items?.filter((item) => {
     if (selectedFilters.length === 0) return true; // No filters = show all
@@ -31,13 +51,13 @@ const MenuPage = () => {
   // const setMenuTags = setMenuData.types.find(
   //   (item) => item.id === selectedMenuId
   // ).tags;
-  console.log(categories);
+  // console.log(allowedCategories);
   return (
     <>
       <div className="sticky flex flex-col justify-center items-center bg-light top-0  w-full max-w-md mx-autopy-3 px-4 pb-6 z-10">
         <div className="w-full flex items-center justify-center h-20">
           <h1 className="text-3xl font-bold font-title text-center">
-            {menuData.menuTitle}
+            {menuTitle}
           </h1>
         </div>
 
@@ -90,6 +110,7 @@ const MenuPage = () => {
               // price={selectedMenuId ? "" : item.price}
               // image={item.imageUrl}
               // description={item.description}
+              onClick={() => handleSelectDish(item)}
             />
           ))
         ) : (
@@ -98,6 +119,7 @@ const MenuPage = () => {
           </p>
         )}
       </ul>
+      {selectedMenuId && <SetMenuSummary />}
     </>
   );
 };

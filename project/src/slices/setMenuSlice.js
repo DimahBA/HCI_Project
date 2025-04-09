@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
+
 const initialState = {
   selectedMenuId: "",
-  setMenuItems: [],
+  selectedItems: {},
 };
 
 const setMenuSlice = createSlice({
@@ -10,17 +11,27 @@ const setMenuSlice = createSlice({
   reducers: {
     setSelectedMenuId: (state, action) => {
       state.selectedMenuId = action.payload;
+      state.selectedItems = {}; // Clear previous selections when a new set menu is selected.
     },
-    addSetMenuItems: (state, action) => {
-      state.setMenuItems.push(action.payload);
+    setSetMenuItem: (state, action) => {
+      const { category, item } = action.payload;
+      state.selectedItems[category] = item;
     },
-    removeSetMenuItems: (state, action) => {
-      state.setMenuItems = state.setMenuItems.filter(
-        (item) => item.id !== action.payload.id
-      );
+    removeSetMenuItem: (state, action) => {
+      const { category } = action.payload;
+      delete state.selectedItems[category];
+    },
+    // Add this reducer to clear all selections.
+    clearSetMenuSelection: (state) => {
+      state.selectedItems = {};
     },
   },
 });
-export const { setSelectedMenuId, removeSetMenuItems, addSetMenuItems } =
-  setMenuSlice.actions;
+
+export const {
+  setSelectedMenuId,
+  setSetMenuItem,
+  removeSetMenuItem,
+  clearSetMenuSelection,
+} = setMenuSlice.actions;
 export default setMenuSlice.reducer;

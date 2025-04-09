@@ -8,6 +8,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { setSelectedMenuId } from "../slices/setMenuSlice";
 import { useNavigate } from "react-router-dom";
 const SetMenuPage = () => {
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
   const setSelectedMenu = (menuId) => {
     dispatch(setSelectedMenuId(menuId));
@@ -15,7 +17,6 @@ const SetMenuPage = () => {
   };
   const selectedMenuId = useSelector((state) => state.setMenu.selectedMenuId);
   console.log("Selected Menu ID:", selectedMenuId);
-  const navigate = useNavigate();
 
   return (
     <>
@@ -37,7 +38,6 @@ const SetMenuPage = () => {
                 image: type.imageUrl,
                 description: type.description,
                 id: type.id,
-                
               }}
               date={type.date}
             />

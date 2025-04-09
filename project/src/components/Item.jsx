@@ -5,18 +5,9 @@ import glutenFree from "../assets/icons/gluten-free2.svg";
 import vegetarian from "../assets/icons/vegetarian2.svg";
 import vegan from "../assets/icons/vegan2.svg";
 
-// import tomatoSoup from "../assets/images/tomato-soup.jpg";
-
-// const imageMap = {
-//   "Tomato Soup": tomatoSoup,
-// };
-//name, price, image, description,
 const Item = ({
   menuItems,
-  // name,
-  // price,
-  // image,
-  // description,
+
   tags,
 
   isSetMenu,
@@ -25,6 +16,8 @@ const Item = ({
   date,
   onClick,
 }) => {
+  const { name, price, image, description, id } = menuItems;
+
   const navigate = useNavigate();
   // const [count, setCount] = useState(0);
 
@@ -38,7 +31,6 @@ const Item = ({
   }
   const isLunch = isAvailableBetween(11, 15); // 11:00 - 15:00
   const isDinner = isAvailableBetween(17, 22); // 17:00 - 22:00
-  const { name, price, image, description, id, type } = menuItems;
   //dispatch
   // // const dispatch = useDispatch();
   // const addToCart = (item) => {
