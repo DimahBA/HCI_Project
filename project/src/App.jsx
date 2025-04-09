@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage";
 import SettingsPage from "./pages/SettingsPage";
 import HelpPage from "./pages/HelpPage";
 import DishDetailsPage from "./pages/DishDetailsPage";
+import CartPage from "./pages/CartPage";
 
 
 import DefaultLayout from "./components/DefaultLayout";
@@ -60,6 +61,14 @@ function App() {
                 <DishDetailsPage />
               </DefaultLayout>
 
+            }
+          />
+          <Route
+            path="/CartPage"
+            element={
+              <DefaultLayout>
+                <CartPage />
+              </DefaultLayout>
             }
           />
 

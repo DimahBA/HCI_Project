@@ -1,4 +1,4 @@
-
+import Button from "../components/Button";
 const HelpPage = () => {
 
   return (
@@ -12,7 +12,7 @@ const HelpPage = () => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet lorem eu dui scelerisque blandit non eu diam. Curabitur odio leo, molestie sed efficitur ac, pulvinar vel ex. Pellentesque vehicula sem enim, dapibus laoreet velit congue in. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus tristique congue est, ut elementum massa tincidunt in. Vestibulum lacinia suscipit 
           sapien, ac tincidunt risus faucibus ut. Donec porttitor pharetra dui eu finibus. 
           </div>
-          <button className="bg-red text-light rounded-2xl px-6 py-2 m-5 text-xl hover:bg-dark">Call a waiter for help</button>
+          <Button text="Call a waiter for help"/>
     
         </div>
       </div>
