@@ -57,84 +57,106 @@ const DishDetailsPage = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-light">
-      {/* Header */}
-      <div className="fixed top-0 w-full max-w-md bg-red text-light h-15 px-4 shadow-light-dark shadow-sm z-50 flex items-center justify-between">
-        <BackButton />
-        <h1 className="text-2xl font-title">Table 24</h1>
-        <div className="w-6"></div> {/* Empty div for flex spacing */}
-      </div>
 
       {/* Main content */}
-      <div className="pt-20 pb-20 px-4">
-        {/* Dish Image */}
-        <div className="relative w-full h-64 rounded-xl overflow-hidden mb-4">
-          <img 
-            src={dish.imageUrl} 
-            alt={dish.name} 
-            className="w-full h-full object-cover"
-          />
-        </div>
+      <div className="pb-20">
+        <div className="relative">
+          {/* Dish Image */}
+          <div className="w-full overflow-hidden">
+            <img
+              src={dish.imageUrl}
+              alt={dish.name}
+              className="w-full object-cover"
+            />
+          </div>
 
-        {/* Dish Name and Price */}
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-3xl font-title text-dark">{dish.name}</h2>
-          <span className="text-2xl font-bold text-dark">{dish.price}€</span>
-        </div>
-
-        {/* Dish Description */}
-        <p className="text-dark mb-6">{dish.description}</p>
-
-        {/* Dietary Tags */}
-        <div className="flex gap-3 mb-6">
-          {dish.tags && dish.tags.includes("Vegetarian") && (
-            <img src={vegetarian} alt="Vegetarian" className="w-8 h-8" />
-          )}
-          {dish.tags && dish.tags.includes("Vegan") && (
-            <img src={vegan} alt="Vegan" className="w-8 h-8" />
-          )}
-          {dish.tags && dish.tags.includes("Gluten Free") && (
-            <img src={glutenFree} alt="Gluten Free" className="w-8 h-8" />
-          )}
-        </div>
-
-        {/* Ingredients */}
-        <div className="mb-6">
-          <h3 className="text-2xl font-title text-dark mb-2">Ingredients</h3>
-          <div className="grid grid-cols-3 gap-2">
-            <div className="bg-light-dark bg-opacity-20 p-2 rounded-lg text-center">Olive oil</div>
-            <div className="bg-light-dark bg-opacity-20 p-2 rounded-lg text-center">Parmesan rind</div>
-            <div className="bg-light-dark bg-opacity-20 p-2 rounded-lg text-center">Tomatoes</div>
-            <div className="bg-light-dark bg-opacity-20 p-2 rounded-lg text-center">Carrot</div>
-            <div className="bg-light-dark bg-opacity-20 p-2 rounded-lg text-center">Salt</div>
-            <div className="bg-light-dark bg-opacity-20 p-2 rounded-lg text-center">Onion</div>
-            <div className="bg-light-dark bg-opacity-20 p-2 rounded-lg text-center">Cream</div>
+          {/* Overlay for dish name, tags and price - positioned over the image */}
+          <div className="absolute bottom-0 left-0 right-0 bg-black/20 text-light p-4">
+            <div className="flex justify-between items-center">
+              <div className="flex items-center">
+                <h2 className="text-3xl font-title mr-2">{dish.name}</h2>
+                {dish.tags && dish.tags.includes("Vegetarian") && (
+                  <img src={vegetarian} alt="Vegetarian" className="w-6 h-6" />
+                )}
+                {dish.tags && dish.tags.includes("Vegan") && (
+                  <img src={vegan} alt="Vegan" className="w-6 h-6 ml-1" />
+                )}
+                {dish.tags && dish.tags.includes("Gluten Free") && (
+                  <img src={glutenFree} alt="Gluten Free" className="w-6 h-6 ml-1" />
+                )}
+              </div>
+              <span className="text-2xl font-bold">{dish.price}€</span>
+            </div>
           </div>
         </div>
 
-        {/* Extras */}
-        <div className="mb-10">
-          <h3 className="text-2xl font-title text-dark mb-2">Extras</h3>
-          <div className="grid grid-cols-2 gap-2">
-            {Object.entries(extras).map(([extra, isSelected]) => (
-              <div 
-                key={extra}
-                onClick={() => handleExtraToggle(extra)}
-                className={`p-3 rounded-lg flex items-center ${isSelected ? 'bg-green' : 'bg-light-dark bg-opacity-20'}`}
-              >
-                <input 
-                  type="checkbox" 
-                  checked={isSelected}
-                  onChange={() => {}}
-                  className="mr-2 h-5 w-5"
+        <div className="px-4 mt-4">
+          {/* Dish Description */}
+          <p className="text-dark text-xl mb-6">{dish.description}</p>
+
+          {/* Ingredients */}
+          <div className="mb-6">
+            <h3 className="text-2xl font-title font-bold text-red mb-2">Ingredients</h3>
+            <div className="grid grid-cols-3 gap-x-8">
+              <div className="text-dark">Olive oil</div>
+              <div className="text-dark">Carrot</div>
+              <div className="text-dark">Onion</div>
+              <div className="text-dark">Parmesan</div>
+              <div className="text-dark">Salt</div>
+              <div className="text-dark">Cream</div>
+              <div className="text-dark">Tomatoes</div>
+              <div className="text-dark">Onion</div>
+            </div>
+          </div>
+
+          {/* Extras */}
+          <div className="mb-10">
+            <h3 className="text-2xl font-title font-bold text-red mb-2">Extras</h3>
+            <div className="grid grid-cols-2 gap-2">
+              <div className="flex items-center">
+                <input
+                  id="red-pepper"
+                  type="checkbox"
+                  checked={extras["Red pepper"]}
+                  onChange={() => handleExtraToggle("Red pepper")}
+                  className="h-5 w-5 mr-2 accent-amber-800"
                 />
-                <span className={isSelected ? 'text-green-dark' : 'text-dark'}>{extra}</span>
+                <label htmlFor="red-pepper" className="text-dark">Red pepper</label>
               </div>
-            ))}
+              <div className="flex items-center">
+                <input
+                  id="thyme"
+                  type="checkbox"
+                  checked={extras["Thyme"]}
+                  onChange={() => handleExtraToggle("Thyme")}
+                  className="h-5 w-5 mr-2 accent-amber-800"
+                />
+                <label htmlFor="thyme" className="text-dark">Thyme</label>
+              </div>
+              <div className="flex items-center">
+                <input
+                  id="black-pepper"
+                  type="checkbox"
+                  checked={extras["Black pepper"]}
+                  onChange={() => handleExtraToggle("Black pepper")}
+                  className="h-5 w-5 mr-2 accent-amber-800"
+                />
+                <label htmlFor="black-pepper" className="text-dark">Black pepper</label>
+              </div>
+              <div className="flex items-center">
+                <input
+                  id="mint"
+                  type="checkbox"
+                  checked={extras["Mint"]}
+                  onChange={() => handleExtraToggle("Mint")}
+                  className="h-5 w-5 mr-2 accent-amber-800"
+                />
+                <label htmlFor="mint" className="text-dark">Mint</label>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-
     </div>
   );
 };
