@@ -19,3 +19,6 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+:root {
+  font-family: var(--font-body);
+}

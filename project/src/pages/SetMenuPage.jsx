@@ -35,7 +35,7 @@ const SetMenuPage = () => {
               menuItems={{
                 name: type.name,
                 price: selectedMenuId ? "" : type.price,
-                image: type.imageUrl,
+                image: type.image,
                 description: type.description,
                 id: type.id,
               }}

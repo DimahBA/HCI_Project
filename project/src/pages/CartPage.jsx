@@ -1,9 +1,11 @@
 import menuData from "../data/menu";
 import Button from "../components/Button";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import CartItem from "../components/CartItem";
 import { useNavigate } from "react-router-dom";
 import { BsCartX } from "react-icons/bs";
+import { removeItem, clearCart } from "../slices/cartSlice";
+import { useState } from "react";
 
 const CartPage = () => {
   // notes: for the item, needs to be thinner
@@ -12,6 +14,10 @@ const CartPage = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   console.log("Cart Items", cartItems);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  let total = 0;
+  cartItems.map((item) => (total = +total + item.price * item.count));
+  console.log("Total Price", total);
   return (
     <>
       <h1 className="text-4xl font-bold font-title text-center mt-10 mb-6">
@@ -22,34 +28,34 @@ const CartPage = () => {
       <div className="border-t border-1 rounded border-light-dark mx-4 mb-6 "></div>
 
       {cartItems.length !== 0 ? (
-        <>
+        <div className="mb-28">
           {cartItems.map((item) => (
             <CartItem key={item.id} item={item} />
           ))}
           <div className="mb-4">
             <label
               for="text"
-              className="block ml-6 mb-2 text-xl font-medium text-dark "
+              className="block ml-6 mb-2 text-lg font-semibold font-title text-dark "
             >
               Notes for the chef
             </label>
 
             <div className="ml-6 mr-6">
-              <input
-                type="text"
+              <textarea
                 id="text"
-                className="border border-dark placeholder-light-dark text-dark text-sm rounded-lg focus:ring-red focus:border-red block w-full h-16 p-2.5"
-                placeholder="Write if you have some notes"
+                className=" border-red border-2 placeholder-light-dark text-dark text-md rounded-lg focus:ring-red focus:border-red block w-full h-32 p-2.5"
+                placeholder="Type if you have some notes"
                 required
-              />
+              ></textarea>
             </div>
           </div>
 
-          <div className="flex justify-between ml-6 mr-6 text-lg">
-            <span className="font-bold">Total:</span>
-            <span>150€</span>
+          <div className="flex justify-between ml-6 mr-6 text-lg font-bold ">
+            <span className="font-title">Total:</span>
+
+            <span className="font-body">{total}€</span>
           </div>
-        </>
+        </div>
       ) : (
         <div className="flex flex-col items-center  gap-4 justify-center ">
           <div className="flex  flex-col justify-center items-center gap-8 opacity-45  w-full h-full mt-44">
@@ -61,9 +67,14 @@ const CartPage = () => {
         </div>
       )}
       {/* </div> */}
-      <div className="fixed bottom-20  w-full max-w-md h-20 flex items-center justify-evenly">
+      <div className="fixed bottom-20  w-full max-w-md h-20 flex items-center justify-center gap-3">
         <Button onClick={() => navigate("/menu")}>Add more</Button>
-        {cartItems.length !== 0 && <Button>Order</Button>}
+        {cartItems.length !== 0 && (
+          <>
+            <Button onClick={() => dispatch(clearCart())}>Clear all</Button>
+            <Button>Order</Button>
+          </>
+        )}
       </div>
     </>
   );

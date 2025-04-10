@@ -4,12 +4,14 @@ import menuData from "../data/menu";
 import MenuTab from "../components/MenuTab";
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import setMenuData from "../data/setMenu";
 import SetMenuSummary from "../components/SetMenuSummary ";
 import { setSetMenuItem } from "../slices/setMenuSlice";
+import Button from "../components/Button";
+import { useNavigate } from "react-router-dom";
 
 const MenuPage = () => {
   const { categories, filters, menuTitle } = menuData;
+  const cartItems = useSelector((state) => state.cart.cartItems);
 
   const [activeMenu, setActiveMenu] = useState(categories[0].name);
   const [selectedFilters, setSelectedFilters] = useState([]);
@@ -47,7 +49,7 @@ const MenuPage = () => {
     if (selectedFilters.length === 0) return true; // No filters = show all
     return selectedFilters.every((filter) => item.tags?.includes(filter));
   });
-
+  const navigate = useNavigate();
   // const setMenuTags = setMenuData.types.find(
   //   (item) => item.id === selectedMenuId
   // ).tags;
@@ -98,7 +100,7 @@ const MenuPage = () => {
               menuItems={{
                 name: item.name,
                 price: item.price,
-                image: item.imageUrl,
+                image: item.image,
                 description: item.description,
                 id: item.id,
                 type: item.type,
@@ -108,7 +110,7 @@ const MenuPage = () => {
               isSetSelected={selectedMenuId ? true : false}
               // name={item.name}
               // price={selectedMenuId ? "" : item.price}
-              // image={item.imageUrl}
+              // image={item.image}
               // description={item.description}
               onClick={() => handleSelectDish(item)}
             />
@@ -120,6 +122,11 @@ const MenuPage = () => {
         )}
       </ul>
       {selectedMenuId && <SetMenuSummary />}
+      {!selectedMenuId && cartItems.length > 0 && (
+        <div className="fixed bottom-20  w-full max-w-md h-20 flex items-center justify-center">
+          <Button onClick={() => navigate("/cart")}>Continue</Button>
+        </div>
+      )}
     </>
   );
 };

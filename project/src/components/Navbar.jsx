@@ -8,6 +8,8 @@ import { setSelectedMenuId } from "../slices/setMenuSlice";
 
 // Navbar.jsx
 export default function Navbar() {
+  const cartItems = useSelector((state) => state.cart.cartItems);
+
   const navigate = useNavigate();
   const location = useLocation();
   const dispatch = useDispatch();
@@ -52,11 +54,14 @@ export default function Navbar() {
             }
           />
         </button>
-        <button onClick={() => navigate("/cart")}>
+        <button className="relative" onClick={() => navigate("/cart")}>
           <CartIcon
             width={location.pathname === "/cart" ? 40 : 35}
             color={location.pathname === "/cart" ? "#6f1d1b" : "#b79a71"}
           />
+          <span className="bg-red rounded-full w-4 h-4 absolute bottom-6 -right-1 text-[10px] text-center text-light ">
+            {cartItems.length}
+          </span>
         </button>
       </div>
     </div>

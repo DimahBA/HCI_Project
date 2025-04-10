@@ -35,10 +35,11 @@ const SetMenuSummary = () => {
 
   // When ready, add the entire set menu as one item to the cart.
   const handleAddSetMenuToCart = () => {
+    console.log("Adding set menu to cart", setMenu);
     const cartItem = {
       id: uuidv4(),
       name: setMenu.name,
-      image: setMenu.imageUrl,
+      image: setMenu.image,
       description: setMenu.description,
       price: setMenu.price,
       menu: "set",
