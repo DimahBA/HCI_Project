@@ -66,7 +66,7 @@ const MenuPage = () => {
           key={categories.id}
           categories={
             selectedMenuId === "lunch-set" || selectedMenuId === "dinner-set"
-              ? categories.filter((cat) => cat.id !== "drinks")
+              ? categories.filter((cat) => cat.id !== "desserts")
               : categories
           }
           // categories={categories}
@@ -97,7 +97,7 @@ const MenuPage = () => {
               // name, price, image, description,
               menuItems={{
                 name: item.name,
-                price: selectedMenuId ? "" : item.price,
+                price: item.price,
                 image: item.imageUrl,
                 description: item.description,
                 id: item.id,

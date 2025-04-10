@@ -1,13 +1,16 @@
 import React from "react";
 import Item from "./Item";
 import { IoIosRemoveCircleOutline } from "react-icons/io";
-import { removeItem } from "../slices/cartSlice"; 
-import { useDispatch } from "react-redux";
+import {
+  increaseCount,
+  removeItem,
+  decreaseCount,
+} from "../slices/cartSlice";import { useDispatch } from "react-redux";
 
 const CartItem = ({ item }) => {
   const isSet = item.menu === "set";
   const dispatch = useDispatch();
-
+  const [count, setCount] = React.useState(item.count || 0);
   if (isSet) {
     return (
       <div className="bg-red m-4 p-4 rounded-lg shadow ">
@@ -44,9 +47,35 @@ const CartItem = ({ item }) => {
               ))}
             </ul>
           </div>
-          <button onClick={() => dispatch(removeItem(item.id))}>
+          {/* <button onClick={() => dispatch(removeItem(item.id))}>
             <IoIosRemoveCircleOutline size={40} className="text-light" />
-          </button>
+          </button> */}
+
+          <div className="flex text-light flex-col items-end gap-2">
+            <div className="flex items-center gap-2 border-2 border-light rounded-full h-8 px-3">
+              <button
+                onClick={() => {
+                  setCount(count - 1);
+                  if (count > 1) {
+                    dispatch(decreaseCount({ count: count - 1, ...item }));
+                  } else {
+                    dispatch(removeItem(item.id));
+                  }
+                }}
+              >
+                -
+              </button>
+              <span className="font-bold">{count}</span>
+              <button
+                onClick={() => {
+                  setCount(count + 1);
+                  dispatch(increaseCount({ count: count + 1, ...item }));
+                }}
+              >
+                +
+              </button>
+            </div>
+          </div>
         </div>
         {/* )} */}
       </div>

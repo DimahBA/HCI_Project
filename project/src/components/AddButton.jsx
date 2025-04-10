@@ -26,6 +26,8 @@ export default function AddButton({ menuItems, isSetSelected }) {
   const selectedItem = useSelector(
     (state) => state.setMenu.selectedItems[menuItems.type]
   );
+  console.log("Selected Item:", selectedItem);
+
   // Determine if this item is the one currently selected.
   const isSelected = selectedItem && selectedItem.id === menuItems.id;
 
