@@ -14,7 +14,7 @@ export default function Toggle({ label, onChange, checked }) {
         className="relative w-16 h-9 bg-light-dark rounded-full peer 
       peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full 
       peer-checked:after:border-light after:content-[''] after:absolute after:top-[4px] after:start-[2px] 
-      after:bg-light after:border-gray-300 after:border after:rounded-full after:h-7 after:w-7 after:transition-all 
+      after:bg-light after:border-light-dark after:border after:rounded-full after:h-7 after:w-7 after:transition-all 
       peer-checked:bg-red"
       ></div>
       {/* peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 */}

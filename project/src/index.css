@@ -51,7 +51,7 @@ body {
 .simple-mode * {
   /* border: none !important; */
   /* box-shadow: none !important; */
-  background: transparent !important;
+  background: var(--color-light) !important;
   color: #3a2416;
 }
 
