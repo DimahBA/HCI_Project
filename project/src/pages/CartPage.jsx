@@ -20,7 +20,7 @@ const CartPage = () => {
   console.log("Total Price", total);
   return (
     <>
-      <h1 className="text-4xl font-bold font-title text-center mt-10 mb-6">
+      <h1 className="text-4xl font-bold font-title text-center mt-5 mb-6">
         My Cart
       </h1>
 
@@ -28,7 +28,7 @@ const CartPage = () => {
       <div className="border-t border-1 rounded border-light-dark mx-4 mb-6 "></div>
 
       {cartItems.length !== 0 ? (
-        <div className="mb-28">
+        <div className="mb-24">
           {cartItems.map((item) => (
             <CartItem key={item.id} item={item} />
           ))}
@@ -67,14 +67,14 @@ const CartPage = () => {
         </div>
       )}
       {/* </div> */}
-      <div className="fixed bottom-20  w-full max-w-md h-20 flex items-center justify-center gap-3">
-        <Button onClick={() => navigate("/menu")}>Add more</Button>
-        {cartItems.length !== 0 && (
-          <>
-            <Button onClick={() => dispatch(clearCart())}>Clear all</Button>
-            <Button>Order</Button>
-          </>
-        )}
+      <div className="fixed bottom-16 left-1/2 transform -translate-x-1/2 flex items-center justify-center gap-3">
+      <Button onClick={() => navigate("/menu")}>Add more</Button>
+      {cartItems.length !== 0 && (
+        <>
+          <Button onClick={() => dispatch(clearCart())}>Clear all</Button>
+          <Button>Order</Button>
+        </>
+      )}
       </div>
     </>
   );

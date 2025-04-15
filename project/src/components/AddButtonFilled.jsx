@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { GoPlus } from "react-icons/go";
 import {
@@ -8,6 +8,8 @@ import {
   decreaseCount,
 } from "../slices/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
+import Button from "./Button";
+import { useNavigate } from "react-router-dom";
 export default function AddButton({ menuItems }) {
   const [count, setCount] = useState(0);
   const cartItems = useSelector((state) => state.cart.cartItems);
@@ -18,8 +20,13 @@ export default function AddButton({ menuItems }) {
   //     setCount(count - 1);
   //   }
   // };
+  const navigate = useNavigate();
   const dispatch = useDispatch();
-
+  useEffect(() => {
+    cartItems.forEach((element) => {
+      element.id === menuItems.id && setCount(element.count);
+    });
+  }, [cartItems, menuItems.id]);
   return (
     <div className="flex flex-col items-end gap-2">
       {count === 0 ? (
@@ -57,6 +64,23 @@ export default function AddButton({ menuItems }) {
           </button>
         </div>
       )}
+      <div className="fixed bottom-16 left-1/2 transform -translate-x-1/2">
+        <Button
+          onClick={() => {
+            if (count === 0) {
+              setCount(1);
+              dispatch(addItem({ count: 1, menu: "dish", ...menuItems }));
+              navigate("/cart");
+            } else {
+              setCount(count + 1);
+              dispatch(increaseCount({ count: count + 1, ...menuItems }));
+              navigate("/cart");
+            }
+          }}
+        >
+          Save and Add to Cart
+        </Button>
+      </div>
     </div>
   );
 }

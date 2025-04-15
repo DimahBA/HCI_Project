@@ -73,7 +73,7 @@ const Item = ({
             <div className="w-full flex items-center justify-between gap-2 mt-2">
               <div className="flex items-center justify-center gap-1.5">
                 <button
-                  className="bg-green px-4 py-0.5 rounded-xl text-red"
+                  className="bg-green active:bg-green-dark px-4 py-0.5 rounded-xl text-red"
                   onClick={handleViewDetails}
                 >
                   Details

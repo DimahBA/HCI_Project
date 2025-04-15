@@ -108,7 +108,7 @@ const menuData = {
           currency: "EUR",
           tags: ["Gluten Free"],
           image:
-            "https://www.cookwithbelula.com/wp-content/uploads/2021/01/salmon-en-papillote-3.jpg",
+            "https://www.realsimple.com/thmb/KQ7Jzh0knAWKNQvYhWsNiJ5jn5c=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ginger-and-honey-soy-salmon-en-papillote-0523FOO-cedd482ae71443e7a2d9153431659db8.jpg",
           description: "Baked salmon with vegetables in parchment paper.",
           type: "main",
           mainIngredients: [
@@ -197,8 +197,7 @@ const menuData = {
           price: 7,
           currency: "EUR",
           tags: ["Vegetarian", "Gluten Free"],
-          image:
-            "https://kissmychef.com/wp-content/uploads/2021/04/mousse.png",
+          image: "https://kissmychef.com/wp-content/uploads/2021/04/mousse.png",
           description: "Light and airy dark chocolate mousse.",
 
           type: "dessert",

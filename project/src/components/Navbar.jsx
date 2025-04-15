@@ -20,7 +20,7 @@ export default function Navbar() {
     setCurrentPage(location.pathname);
   }, [location.pathname]);
   return (
-    <div className="fixed bottom-0 w-full max-w-md h-20 flex items-center justify-center bg-light shadow-dark shadow-2xl z-40">
+    <div className="fixed bottom-0 w-full max-w-md h-15 flex items-center justify-center bg-light shadow-dark shadow-2xl z-30">
       <div className="flex items-center justify-evenly w-full">
         <button
           onClick={() => {
@@ -29,7 +29,7 @@ export default function Navbar() {
           }}
         >
           <MenuIcons
-            width={location.pathname === "/menu" && !selectedMenuId ? 40 : 35}
+            width={location.pathname === "/menu" && !selectedMenuId ? 30 : 25}
             color={
               location.pathname === "/menu" && !selectedMenuId
                 ? "#6f1d1b"
@@ -42,8 +42,8 @@ export default function Navbar() {
             width={
               location.pathname === "/set-menus" ||
               (selectedMenuId && !location.pathname !== "/cart")
-                ? 40
-                : 35
+                ? 30
+                : 25
             }
             isASetMenu
             color={
@@ -56,10 +56,10 @@ export default function Navbar() {
         </button>
         <button className="relative" onClick={() => navigate("/cart")}>
           <CartIcon
-            width={location.pathname === "/cart" ? 40 : 35}
+            width={location.pathname === "/cart" ? 30 : 25}
             color={location.pathname === "/cart" ? "#6f1d1b" : "#b79a71"}
           />
-          <span className="bg-red rounded-full w-4 h-4 absolute bottom-6 -right-1 text-[10px] text-center text-light ">
+          <span className="bg-red rounded-full w-3.5 h-3.5 absolute bottom-5 -right-1 text-[9px] text-center text-light ">
             {cartItems.length}
           </span>
         </button>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addItem,
@@ -26,11 +26,15 @@ export default function AddButton({ menuItems, isSetSelected }) {
   const selectedItem = useSelector(
     (state) => state.setMenu.selectedItems[menuItems.type]
   );
-  console.log("Selected Item:", selectedItem);
 
   // Determine if this item is the one currently selected.
   const isSelected = selectedItem && selectedItem.id === menuItems.id;
 
+  useEffect(() => {
+    cartItems.forEach((element) => {
+      element.id === menuItems.id && setCount(element.count);
+    });
+  }, [cartItems, menuItems.id]);
   // If not in set mode, show the normal add-to-cart buttons.
   if (!isSetSelected) {
     return (

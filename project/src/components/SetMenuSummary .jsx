@@ -58,25 +58,10 @@ const SetMenuSummary = () => {
   if (!allSelected) return null;
 
   return (
-    <div className="fixed bottom-20  w-full max-w-md h-20 flex items-center justify-center">
-      {/* <h3>Your {setMenu.name} Selection</h3>
-      <ul>
-        {requiredCategories.map((cat) => (
-          <li key={cat}>
-            {cat.charAt(0).toUpperCase() + cat.slice(1)}:{" "}
-            {selectedItems[cat] ? selectedItems[cat].name : "None"}
-          </li>
-        ))}
-      </ul> */}
+    <div className="fixed bottom-16 left-1/2 transform -translate-x-1/2">
 
-      {/* <button
-        className="bg-dark w-42 px-4 py-4 border-light border-2 text-light rounded-xl font-medium hover:bg-red hover:text-light transition duration-300 ease-in-out shadow-light shadow-xs"
-        onClick={handleAddSetMenuToCart}
-      >
-        Add To Cart
-      </button> */}
-      <Button onClick={handleAddSetMenuToCart}> Add To Cart</Button>
-    </div>
+    <Button onClick={handleAddSetMenuToCart}> Add To Cart</Button>
+   </div>
   );
 };
 

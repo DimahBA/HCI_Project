@@ -52,13 +52,6 @@ const DishDetailsPage = () => {
     navigate(-1);
   };
 
-  const saveAndAddToCart = () => {
-    // Here you would typically add the dish with selected extras to the cart
-    // For now, just navigate back
-    console.log("Adding to cart:", dish.name, "with extras:", selectedExtras);
-
-    navigate(-1);
-  };
 
   if (!dish) {
     return (
@@ -80,7 +73,7 @@ const DishDetailsPage = () => {
 
           {/* Add Button - positioned on top of the image */}
           <div className="absolute top-8 right-4 z-10">
-            <AddButton menuItems={dish}/>
+            <AddButton menuItems={dish} />
           </div>
 
           {/* Dish Image */}
@@ -181,9 +174,9 @@ const DishDetailsPage = () => {
           )}
 
           {/* Save and Add to Cart Button */}
-          <div className="fixed bottom-20  w-full max-w-md h-20 flex items-center justify-center">
+          {/* <div className="fixed bottom-20  w-full max-w-md h-20 flex items-center justify-center">
             <Button onClick={saveAndAddToCart}>Save and Add to Cart</Button>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

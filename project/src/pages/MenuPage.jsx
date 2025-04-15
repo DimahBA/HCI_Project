@@ -92,7 +92,7 @@ const MenuPage = () => {
       </div>
 
       {/* Items */}
-      <ul>
+      <ul className="mb-20">
         {filteredItems.length > 0 ? (
           filteredItems.map((item) => (
             <Item
@@ -123,7 +123,7 @@ const MenuPage = () => {
       </ul>
       {selectedMenuId && <SetMenuSummary />}
       {!selectedMenuId && cartItems.length > 0 && (
-        <div className="fixed bottom-20  w-full max-w-md h-20 flex items-center justify-center">
+        <div className="fixed bottom-16 left-1/2 transform -translate-x-1/2">
           <Button onClick={() => navigate("/cart")}>Continue</Button>
         </div>
       )}
