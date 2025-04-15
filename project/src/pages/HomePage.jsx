@@ -33,7 +33,7 @@ const HomePage = () => {
         className="flex-1 flex  flex-col p-6 bg-light"
         style={{
           backgroundImage:
-            "repeating-linear-gradient(90deg, transparent, transparent 15px, rgba(255, 233, 201, 0.5) 15px, rgba(255, 233, 201, 0.5) 30px)",
+            "repeating-linear-gradient(90deg, transparent, transparent 15px, var(--color-strip) 15px, var(--color-strip) 30px)",
         }}
       >
         {/* Welcome text */}
@@ -47,7 +47,7 @@ const HomePage = () => {
         {/* Menu buttons */}
         <div className="flex justify-center gap-4 my-8">
           <button
-            className="flex flex-col items-center justify-center bg-red text-light rounded-xl p-4 w-36 h-40 active:border-2 active:border-red active:bg-light active:text-red transition duration-300 ease-in-out"
+            className="flex flex-col items-center justify-center bg-red text-light rounded-xl p-4 w-36 h-40 active:border-2 active:border-red active:bg-light active:text-red transition duration-300 ease-in-out "
             onClick={goToMenuPage}
           >
             <div className="flex items-center justify-center mb-2">

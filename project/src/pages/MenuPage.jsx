@@ -57,7 +57,7 @@ const MenuPage = () => {
   return (
     <>
       <div className="sticky flex flex-col justify-center items-center bg-light top-0  w-full max-w-md mx-autopy-3 px-4 pb-6 z-10">
-        <div className="w-full flex items-center justify-center h-20">
+        <div className="w-full flex items-center justify-center text-dark h-20">
           <h1 className="text-3xl font-bold font-title text-center">
             {menuTitle}
           </h1>

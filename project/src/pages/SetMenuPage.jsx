@@ -20,7 +20,7 @@ const SetMenuPage = () => {
 
   return (
     <>
-      <div className="w-full flex items-center justify-center h-30">
+      <div className="w-full flex items-center justify-center h-30 text-dark">
         <h1 className="text-3xl font-bold font-title text-center">
           {menuData.menuTitle}
         </h1>

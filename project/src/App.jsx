@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./index.css";
 import MenuPage from "./pages/MenuPage";
@@ -9,14 +9,27 @@ import DishDetailsPage from "./pages/DishDetailsPage";
 import CartPage from "./pages/CartPage";
 import OrderedPage from "./pages/OrderedPage";
 
+import { useSelector } from "react-redux";
+
 import DefaultLayout from "./components/DefaultLayout";
 import SetMenuPage from "./pages/SetMenuPage";
 
 function App() {
+  const accessibility = useSelector((state) => state.accessibility);
+  useEffect(() => {
+    const { contrast, bigFont, simpleMode, darkMode } = accessibility;
+
+    const root = document.documentElement;
+
+    root.classList.toggle("dark", darkMode);
+    document.body.classList.toggle("high-contrast", contrast);
+    document.body.classList.toggle("big-font", bigFont);
+    document.body.classList.toggle("simple-mode", simpleMode);
+    localStorage.setItem("accessibility", JSON.stringify(accessibility));
+  }, [accessibility]);
   return (
     <Router>
       <div className="relative h-screen w-full max-w-md mx-auto bg-light flex flex-col overflow-hidden">
-      
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route
@@ -53,14 +66,12 @@ function App() {
               </DefaultLayout>
             }
           />
-          <Route 
-            path="/dish/:id" 
+          <Route
+            path="/dish/:id"
             element={
-
               <DefaultLayout>
                 <DishDetailsPage />
               </DefaultLayout>
-
             }
           />
           <Route

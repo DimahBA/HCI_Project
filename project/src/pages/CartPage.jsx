@@ -20,7 +20,7 @@ const CartPage = () => {
   console.log("Total Price", total);
   return (
     <>
-      <h1 className="text-4xl font-bold font-title text-center mt-5 mb-6">
+      <h1 className="text-3xl font-bold font-title text-center mt-5 mb-6 text-dark">
         My Cart
       </h1>
 
@@ -50,7 +50,7 @@ const CartPage = () => {
             </div>
           </div>
 
-          <div className="flex justify-between ml-6 mr-6 text-lg font-bold ">
+          <div className="flex justify-between ml-6 mr-6 text-lg font-bold text-dark">
             <span className="font-title">Total:</span>
 
             <span className="font-body">{total}€</span>

@@ -61,11 +61,13 @@ const menuData = {
           price: 14,
           currency: "EUR",
           tags: [],
-          image: "https://www.maisonmontfort.com/wp-content/uploads/2022/01/Foie-gras-sur-canape%CC%81-au-caramel-de-piment.jpg",
-          description: "Duck liver pâté served with fig jam and toasted brioche.",
+          image:
+            "https://www.maisonmontfort.com/wp-content/uploads/2022/01/Foie-gras-sur-canape%CC%81-au-caramel-de-piment.jpg",
+          description:
+            "Duck liver pâté served with fig jam and toasted brioche.",
           type: "starter",
           mainIngredients: ["Duck liver", "Fig jam", "Brioche"],
-          extras: ["Caramelized Onions", "Salad" ],
+          extras: ["Caramelized Onions", "Salad"],
         },
         {
           id: "salade_chevre_chaud",
@@ -73,7 +75,8 @@ const menuData = {
           price: 10,
           currency: "EUR",
           tags: ["Vegetarian"],
-          image: "https://files.meilleurduchef.com/mdc/photo/recette/salade-chevre-chaud/salade-chevre-chaud-1200.jpg",
+          image:
+            "https://files.meilleurduchef.com/mdc/photo/recette/salade-chevre-chaud/salade-chevre-chaud-1200.jpg",
           description: "Warm goat cheese on toast served over mixed greens.",
           type: "starter",
           mainIngredients: ["Goat cheese", "Lettuce", "Walnuts", "Bread"],
@@ -85,12 +88,18 @@ const menuData = {
           price: 9,
           currency: "EUR",
           tags: ["Vegan"],
-          image: "https://cuisine-addict.com/wp-content/uploads/2020/03/recette-veloute-petits-pois-oeuf-poche.jpg",
+          image:
+            "https://cuisine-addict.com/wp-content/uploads/2020/03/recette-veloute-petits-pois-oeuf-poche.jpg",
           description: "Creamy pea soup with mint and olive oil drizzle.",
           type: "starter",
-          mainIngredients: ["Green peas", "Vegetable broth", "Mint", "Olive oil"],
+          mainIngredients: [
+            "Green peas",
+            "Vegetable broth",
+            "Mint",
+            "Olive oil",
+          ],
           extras: ["Croutons", "Vegan Sour Cream"],
-        }
+        },
       ],
     },
     {
@@ -186,7 +195,8 @@ const menuData = {
           price: 21,
           currency: "EUR",
           tags: [],
-          image: "https://images.themodernproper.com/production/posts/2022/SteakFrites_13.jpg?w=1200&q=82&auto=format&fit=crop&dm=1662582338&s=e76f57374ef1ac07c0158333f863ecfc",
+          image:
+            "https://images.themodernproper.com/production/posts/2022/SteakFrites_13.jpg?w=1200&q=82&auto=format&fit=crop&dm=1662582338&s=e76f57374ef1ac07c0158333f863ecfc",
           description: "Grilled steak with crispy French fries.",
           type: "main",
           mainIngredients: ["Beef steak", "Potatoes", "Herbs"],
@@ -198,10 +208,18 @@ const menuData = {
           price: 18,
           currency: "EUR",
           tags: [],
-          image: "https://assets.afcdn.com/recipe/20160401/38946_w1024h1024c1cx2690cy1793.jpg",
-          description: "Savoyard dish of potatoes, reblochon cheese, lardons, and onions.",
+          image:
+            "https://assets.afcdn.com/recipe/20160401/38946_w1024h1024c1cx2690cy1793.jpg",
+          description:
+            "Savoyard dish of potatoes, reblochon cheese, lardons, and onions.",
           type: "main",
-          mainIngredients: ["Potatoes", "Reblochon cheese", "Lardons", "Onions", "Cream"],
+          mainIngredients: [
+            "Potatoes",
+            "Reblochon cheese",
+            "Lardons",
+            "Onions",
+            "Cream",
+          ],
           extras: ["Mushrooms"],
         },
         {
@@ -210,10 +228,17 @@ const menuData = {
           price: 16,
           currency: "EUR",
           tags: ["Vegetarian", "Gluten Free"],
-          image: "https://images.radio-canada.ca/v1/alimentation/recette/4x3/gratin-legumes-racines.jpg",
+          image:
+            "https://images.radio-canada.ca/v1/alimentation/recette/4x3/gratin-legumes-racines.jpg",
           description: "Oven-baked vegetable gratin with cream and cheese.",
           type: "main",
-          mainIngredients: ["Zucchini", "Carrots", "Eggplant", "Cream", "Cheese"],
+          mainIngredients: [
+            "Zucchini",
+            "Carrots",
+            "Eggplant",
+            "Cream",
+            "Cheese",
+          ],
           extras: ["Garlic"],
         },
         {
@@ -222,10 +247,17 @@ const menuData = {
           price: 15,
           currency: "EUR",
           tags: ["Vegan", "Gluten Free"],
-          image: "https://www.gourmandiseries.fr/wp-content/uploads/2018/11/recette-curry-pois-chiche.jpg",
+          image:
+            "https://www.gourmandiseries.fr/wp-content/uploads/2018/11/recette-curry-pois-chiche.jpg",
           description: "Chickpea and vegetable curry served with rice.",
           type: "main",
-          mainIngredients: ["Chickpeas", "Coconut milk", "Spinach", "Tomatoes", "Rice"],
+          mainIngredients: [
+            "Chickpeas",
+            "Coconut milk",
+            "Spinach",
+            "Tomatoes",
+            "Rice",
+          ],
           extras: ["Naan Bread", "Chili Flakes"],
         },
         {
@@ -234,12 +266,19 @@ const menuData = {
           price: 17,
           currency: "EUR",
           tags: ["Gluten Free"],
-          image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqY3EBo6wPQA9STZVrdhMAFwA8J9SSDkJgGQ&s",
+          image:
+            "https://www.foodandwine.com/thmb/7_y1SLSmabv8G3X6-bjZkNFfgOE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Poulet-Basquaise-FT-RECIPE1023-1e5c2fc9a9324247bb91968a096066e3.jpg",
           description: "Basque-style chicken stew with peppers and tomatoes.",
           type: "main",
-          mainIngredients: ["Chicken", "Bell peppers", "Tomatoes", "Garlic", "Onions"],
+          mainIngredients: [
+            "Chicken",
+            "Bell peppers",
+            "Tomatoes",
+            "Garlic",
+            "Onions",
+          ],
           extras: ["Olives", "Grilled Vegetables"],
-        }        
+        },
       ],
     },
 
@@ -312,10 +351,17 @@ const menuData = {
           price: 8,
           currency: "EUR",
           tags: ["Vegetarian"],
-          image: "https://www.elle-et-vire.com/uploads/cache/1920x1200/uploads/recip/recipe/1326/moelleux-1920x1200.png",
+          image:
+            "https://www.elle-et-vire.com/uploads/cache/1920x1200/uploads/recip/recipe/1326/moelleux-1920x1200.png",
           description: "Molten chocolate cake with a gooey center.",
           type: "dessert",
-          mainIngredients: ["Dark chocolate", "Butter", "Eggs", "Sugar", "Flour"],
+          mainIngredients: [
+            "Dark chocolate",
+            "Butter",
+            "Eggs",
+            "Sugar",
+            "Flour",
+          ],
           extras: [],
         },
         {
@@ -324,7 +370,8 @@ const menuData = {
           price: 8,
           currency: "EUR",
           tags: ["Vegetarian"],
-          image: "https://blog.feeriecake.fr/wp-content/uploads/2022/02/PROFITEROLES.jpg",
+          image:
+            "https://blog.feeriecake.fr/wp-content/uploads/2022/02/PROFITEROLES.jpg",
           description: "Cream-filled choux pastry with chocolate sauce.",
           type: "dessert",
           mainIngredients: ["Choux pastry", "Vanilla cream", "Chocolate sauce"],
@@ -336,7 +383,8 @@ const menuData = {
           price: 6,
           currency: "EUR",
           tags: ["Vegetarian", "Gluten Free"],
-          image: "https://assets.afcdn.com/recipe/20221007/135811_w1024h1024c1cx1190cy893cxt0cyt0cxb2121cyb1414.jpg",
+          image:
+            "https://assets.afcdn.com/recipe/20221007/135811_w1024h1024c1cx1190cy893cxt0cyt0cxb2121cyb1414.jpg",
           description: "Creamy rice pudding with vanilla and cinnamon.",
           type: "dessert",
           mainIngredients: ["Rice", "Milk", "Sugar", "Vanilla", "Cinnamon"],
@@ -360,10 +408,18 @@ const menuData = {
           price: 7,
           currency: "EUR",
           tags: ["Vegan", "Vegetarian", "Gluten Free"],
-          image: "https://barbarafrenchvegan.com/wp-content/uploads/2024/01/IMG_3003-scaled.jpg",
-          description: "Silky plant-based caramel flan with golden syrup topping.",
+          image:
+            "https://barbarafrenchvegan.com/wp-content/uploads/2024/01/IMG_3003-scaled.jpg",
+          description:
+            "Silky plant-based caramel flan with golden syrup topping.",
           type: "dessert",
-          mainIngredients: ["Soy milk", "Coconut cream", "Cornstarch", "Maple syrup", "Vanilla"],
+          mainIngredients: [
+            "Soy milk",
+            "Coconut cream",
+            "Cornstarch",
+            "Maple syrup",
+            "Vanilla",
+          ],
           extras: [],
         },
         {
@@ -372,12 +428,19 @@ const menuData = {
           price: 9,
           currency: "EUR",
           tags: ["Vegan", "Vegetarian"],
-          image: "https://resize.elle.fr/portrait/var/plain_site/storage/images/elle-a-table/recettes-de-cuisine/tarte-chocolat-noisette-4226400/102011851-1-fre-FR/Tarte-chocolat-noisette.jpg",
+          image:
+            "https://resize.elle.fr/portrait/var/plain_site/storage/images/elle-a-table/recettes-de-cuisine/tarte-chocolat-noisette-4226400/102011851-1-fre-FR/Tarte-chocolat-noisette.jpg",
           description: "Decadent chocolate hazelnut tart with a crunchy crust.",
           type: "dessert",
-          mainIngredients: ["Dark chocolate", "Hazelnuts", "Vegan butter", "Maple syrup", "Coconut cream"],
+          mainIngredients: [
+            "Dark chocolate",
+            "Hazelnuts",
+            "Vegan butter",
+            "Maple syrup",
+            "Coconut cream",
+          ],
           extras: [],
-        }
+        },
       ],
     },
     {
@@ -443,7 +506,8 @@ const menuData = {
           price: 7,
           currency: "EUR",
           tags: ["Vegan", "Vegetarian", "Gluten Free"],
-          image: "https://www.hestia-events.fr/1519-home_default/flute-a-champagne-13-cl.jpg",
+          image:
+            "https://www.hestia-events.fr/1519-home_default/flute-a-champagne-13-cl.jpg",
           description: "Glass of Sparkling French champagne — dry and festive.",
           type: "drink",
           mainIngredients: ["Grapes"],
@@ -455,7 +519,8 @@ const menuData = {
           price: 15,
           currency: "EUR",
           tags: ["Vegan", "Vegetarian", "Gluten Free"],
-          image: "https://produits.bienmanger.com/2505-0w470h470_Cidre_Fermier_Brut.jpg",
+          image:
+            "https://produits.bienmanger.com/2505-0w470h470_Cidre_Fermier_Brut.jpg",
           description: "Bottle of sparkling French apple cider.",
           type: "drink",
           mainIngredients: ["Apples"],
@@ -467,8 +532,10 @@ const menuData = {
           price: 4,
           currency: "EUR",
           tags: ["Vegan", "Vegetarian", "Gluten Free"],
-          image: "https://images.unsplash.com/photo-1621263764928-df1444c5e859?w=1600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bGltb25hZGV8ZW58MHx8MHx8fDA%3D",
-          description: "Glass of homemade sparkling lemonade with fresh citrus and mint.",
+          image:
+            "https://images.unsplash.com/photo-1621263764928-df1444c5e859?w=1600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bGltb25hZGV8ZW58MHx8MHx8fDA%3D",
+          description:
+            "Glass of homemade sparkling lemonade with fresh citrus and mint.",
           type: "drink",
           mainIngredients: ["Lemon juice", "Sugar", "Sparkling water", "Mint"],
           extras: [],
@@ -479,7 +546,8 @@ const menuData = {
           price: 4,
           currency: "EUR",
           tags: ["Vegan", "Vegetarian", "Gluten Free"],
-          image: "https://plus.unsplash.com/premium_photo-1687977548362-c007bccd893f?w=1600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8YXBwbGUlMjBqdWljZXxlbnwwfHwwfHx8MA%3D%3D",
+          image:
+            "https://plus.unsplash.com/premium_photo-1687977548362-c007bccd893f?w=1600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8YXBwbGUlMjBqdWljZXxlbnwwfHwwfHx8MA%3D%3D",
           description: "Glass of cold-pressed cloudy apple juice.",
           type: "drink",
           mainIngredients: ["Apples"],
@@ -491,7 +559,8 @@ const menuData = {
           price: 4,
           currency: "EUR",
           tags: ["Vegan", "Vegetarian", "Gluten Free"],
-          image: "https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=1600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8b3JhbmdlJTIwanVpY2V8ZW58MHx8MHx8fDA%3D",
+          image:
+            "https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=1600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8b3JhbmdlJTIwanVpY2V8ZW58MHx8MHx8fDA%3D",
           description: "Glass of freshly squeezed orange juice.",
           type: "drink",
           mainIngredients: ["Oranges"],
@@ -503,7 +572,8 @@ const menuData = {
           price: 4,
           currency: "EUR",
           tags: ["Vegan", "Vegetarian", "Gluten Free"],
-          image: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=1600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aWNlZCUyMHRlYXxlbnwwfHwwfHx8MA%3D%3D",
+          image:
+            "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=1600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aWNlZCUyMHRlYXxlbnwwfHwwfHx8MA%3D%3D",
           description: "Glass of homemade iced tea with lemon and mint.",
           type: "drink",
           mainIngredients: ["Black tea", "Lemon", "Mint", "Sugar"],

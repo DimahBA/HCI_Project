@@ -9,7 +9,7 @@ export default function DefaultLayout({ children }) {
         <TableHeader />
 
         {/* Main content area */}
-        <main className="pt-[45px] pb-[64px] mt-4 overflow-y-auto h-full no-scrollbar">
+        <main className="pt-[45px] pb-[64px] mt-5 overflow-y-auto h-full no-scrollbar">
           {children}
         </main>
 
