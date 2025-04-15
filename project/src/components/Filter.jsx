@@ -14,7 +14,7 @@ const Filter = ({ name, isActive, onClick }) => {
   return (
     <button
       onClick={onClick}
-      className={`border-2 rounded-full py-1.5 px-2 flex font-normal items-center transition ${
+      className={`border-2 rounded-full py-1.5 px-2 flex font-normal items-center transition small-text ${
         isActive
           ? "bg-green text-green-dark border-green-dark"
           : "border-green-dark text-green-dark"

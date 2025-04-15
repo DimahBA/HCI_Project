@@ -22,3 +22,9 @@
 :root {
   font-family: var(--font-body);
 }
+@media (width <391px) {
+  .small-text{
+  font-size: 14px;
+
+  }
+}

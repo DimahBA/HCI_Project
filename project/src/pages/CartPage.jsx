@@ -67,7 +67,7 @@ const CartPage = () => {
         </div>
       )}
       {/* </div> */}
-      <div className="fixed bottom-16 left-1/2 transform -translate-x-1/2 flex items-center justify-center gap-3">
+      <div className="fixed w-full  max-w-md  bottom-16 left-1/2 transform -translate-x-1/2 flex justify-center gap-1 px-4 ">
       <Button onClick={() => navigate("/menu")}>Add more</Button>
       {cartItems.length !== 0 && (
         <>
