@@ -7,7 +7,7 @@ import SettingsPage from "./pages/SettingsPage";
 import HelpPage from "./pages/HelpPage";
 import DishDetailsPage from "./pages/DishDetailsPage";
 import CartPage from "./pages/CartPage";
-
+import OrderedPage from "./pages/OrderedPage";
 
 import DefaultLayout from "./components/DefaultLayout";
 import SetMenuPage from "./pages/SetMenuPage";
@@ -68,6 +68,14 @@ function App() {
             element={
               <DefaultLayout>
                 <CartPage />
+              </DefaultLayout>
+            }
+          />
+          <Route
+            path="/ordered"
+            element={
+              <DefaultLayout>
+                <OrderedPage />
               </DefaultLayout>
             }
           />

@@ -72,7 +72,7 @@ const CartPage = () => {
       {cartItems.length !== 0 && (
         <>
           <Button onClick={() => dispatch(clearCart())}>Clear all</Button>
-          <Button>Order</Button>
+          <Button onClick={() => navigate("/ordered")}>Order</Button>
         </>
       )}
       </div>
