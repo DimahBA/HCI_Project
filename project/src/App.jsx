@@ -109,7 +109,7 @@ function App() {
           />
 
           <Route
-            path="/PaymentPage"
+            path="/payment-page"
             element={
               <DefaultLayout>
                 <PaymentPage />
