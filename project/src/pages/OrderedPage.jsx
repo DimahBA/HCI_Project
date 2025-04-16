@@ -15,7 +15,6 @@ const OrderedPage = () => {
 
   const timerDuration = 1;
   const [time, setTime] = useState(timerDuration * 60);
-
   useEffect(() => {
     const interval = setInterval(() => {
       setTime(prevTime => {

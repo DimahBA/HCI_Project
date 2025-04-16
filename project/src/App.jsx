@@ -10,11 +10,14 @@ import CartPage from "./pages/CartPage";
 import OrderedPage from "./pages/OrderedPage";
 import PaymentPage from "./pages/PaymentPage";
 
+import RatingPage from "./pages/RatingPage";
 
 import { useSelector } from "react-redux";
 
 import DefaultLayout from "./components/DefaultLayout";
 import SetMenuPage from "./pages/SetMenuPage";
+import CartSyncer from "./components/CartSyncer";
+
 
 function App() {
   const accessibility = useSelector((state) => state.accessibility);
@@ -30,6 +33,8 @@ function App() {
     localStorage.setItem("accessibility", JSON.stringify(accessibility));
   }, [accessibility]);
   return (
+    <>
+    <CartSyncer />
     <Router>
       <div className="relative h-screen w-full max-w-md mx-auto bg-light flex flex-col overflow-hidden">
         <Routes>
@@ -92,6 +97,14 @@ function App() {
               </DefaultLayout>
             }
           />
+          <Route
+            path="/rating"
+            element={
+              <DefaultLayout>
+                <RatingPage />
+              </DefaultLayout>
+            }
+          />
 
           <Route
             path="/PaymentPage"
@@ -106,6 +119,7 @@ function App() {
         </Routes>
       </div>
     </Router>
+    </>
   );
 }
 
