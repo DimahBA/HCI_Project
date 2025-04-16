@@ -33,7 +33,7 @@ export default function AddButton({ menuItems }) {
         <button
           onClick={() => {
             setCount(1);
-            dispatch(addItem({ count: 1, menu: "dish", paid:false, ...menuItems }));
+            dispatch(addItem({ count: 1, menu: "dish", paid: false, ...menuItems }));
           }}
           className="bg-light text-red text-3xl w-12 h-12 rounded-full flex items-center justify-center shadow-md"
         >

@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+
 const initialState = {
   cartItems: JSON.parse(localStorage.getItem("cart")) || [],
   orderedItems: JSON.parse(localStorage.getItem("orderedItems") || "[]") || [],
@@ -10,8 +11,6 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addItem: (state, action) => {
-      // Example item structure might be { id, name, price, quantity }
-      // You can push or find if it's already in the cart and just update quantity
       state.cartItems.push(action.payload);
     },
     setRemainingAmount: (state, action) => {
@@ -21,32 +20,31 @@ const cartSlice = createSlice({
       state.orderedItems = [...state.cartItems];
     },
     removeItem: (state, action) => {
-      // Remove the item by index or by matching an ID
-      const itemId = action.payload;
-      state.cartItems = state.cartItems.filter((item) => item.id !== itemId);
+      const id = action.payload;
+      state.cartItems = state.cartItems.filter((it) => it.id !== id);
     },
     increaseCount: (state, action) => {
-      const itemId = action.payload.id;
-      const item = state.cartItems.find((item) => item.id === itemId);
-      if (item) {
-        item.count += 1; // Increment the count of the item
-      }
+      const item = state.cartItems.find((it) => it.id === action.payload.id);
+      if (item) item.count += 1;
     },
     decreaseCount: (state, action) => {
-      const itemId = action.payload.id;
-      const item = state.cartItems.find((item) => item.id === itemId);
-      if (item) {
-        item.count -= 1; // Increment the count of the item
-      }
+      const item = state.cartItems.find((it) => it.id === action.payload.id);
+      if (item) item.count -= 1;
     },
     clearCart: (state) => {
       state.cartItems = [];
     },
+    clearOrdered: (state) => {
+      state.orderedItems = [];
+    },
+
+    /* -------------- MAIN CHANGE -------------- */
     markItemsPaid: (state, action) => {
-      const ids = action.payload; // string[] | number[]
-      state.orderedItems.forEach((it) => {
-        if (ids.includes(it.id)) it.paid = true;
-      });
+      const ids = action.payload; // array of IDs just paid
+      state.orderedItems = state.orderedItems.map((it) =>
+        ids.includes(it.id) ? { ...it, paid: true } : it
+      );
+      localStorage.setItem("orderedItems", JSON.stringify(state.orderedItems));
     },
   },
 });
@@ -55,12 +53,16 @@ export const {
   addItem,
   removeItem,
   clearCart,
+  clearOrdered,
   increaseCount,
   decreaseCount,
   createOrderedItems,
   setRemainingAmount,
   markItemsPaid,
 } = cartSlice.actions;
+
+/* Selectors */
+
 export const selectCartTotal = (state) =>
   state.cart.cartItems.reduce(
     (total, item) => total + item.price * item.count,
@@ -78,3 +80,9 @@ export const selectCartItemCount = (state) =>
   state.cart.cartItems.reduce((total, item) => total + item.count, 0);
 
 export default cartSlice.reducer;
+
+export const selectUnpaidOrderedTotal = (state) =>
+  state.cart.orderedItems.reduce(
+    (tot, it) => (it.paid ? tot : tot + it.price * it.count),
+    0
+  );

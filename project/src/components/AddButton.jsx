@@ -43,7 +43,9 @@ export default function AddButton({ menuItems, isSetSelected }) {
           <button
             onClick={() => {
               setCount(1);
-              dispatch(addItem({ count: 1, menu: "dish", paid: "false", ...menuItems }));
+              dispatch(
+                addItem({ count: 1, menu: "dish", paid: false, ...menuItems })
+              );
             }}
             className="border-2 border-light text-light w-8 h-8 rounded-full"
           >
