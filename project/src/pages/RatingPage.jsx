@@ -6,10 +6,10 @@ import { BsClock } from "react-icons/bs";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import RateItem from "../components/RateItem";
 const RatingPage = () => {
-  const cartItems = useSelector((state) => state.cart.cartItems);
+  const orderedItems = useSelector((state) => state.cart.orderedItems);
 
   let total = 0;
-  cartItems.map((item) => (total = +total + item.price * item.count));
+  orderedItems.map((item) => (total = +total + item.price * item.count));
 
   return (
     <div className="text-dark">
@@ -23,7 +23,7 @@ const RatingPage = () => {
       </p>
       <div className="border-t border-1 rounded border-light-dark mx-4 mb-4 "></div>
       <div className="mb-24">
-        {cartItems.map((item) => (
+        {orderedItems.map((item) => (
           <RateItem key={item.id} item={item} />
         ))}
       </div>

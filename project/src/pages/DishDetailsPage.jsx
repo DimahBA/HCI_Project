@@ -12,13 +12,12 @@ import AddButton from "../components/AddButtonFilled";
 import BackButtonFilled from "../components/BackButtonFilled";
 import QuantityButton from "../components/QuantityButton";
 import Button from "../components/Button";
-import { useLocation } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
+import Checkbox from "../components/Checkbox";
 
 const DishDetailsPage = () => {
-
   const { state } = useLocation();
   const activeMenu = state?.activeCategory;
-
 
   const { id } = useParams();
   const navigate = useNavigate();
@@ -54,9 +53,8 @@ const DishDetailsPage = () => {
   };
 
   const goBack = () => {
-    navigate('/menu', { state: { activeCategory: activeMenu } });
+    navigate("/menu", { state: { activeCategory: activeMenu } });
   };
-
 
   if (!dish) {
     return (
@@ -126,16 +124,11 @@ const DishDetailsPage = () => {
               </h3>
               <div className="grid grid-cols-3 gap-x-6 gap-y-2">
                 {dish.mainIngredients.map((ingredient, index) => (
-                  <div
-                    key={index}
-                    className="text-dark text-lg "
-                  >
+                  <div key={index} className="text-dark text-lg ">
                     {ingredient}
                   </div>
                 ))}
               </div>
-
-
             </div>
           )}
 
@@ -148,13 +141,17 @@ const DishDetailsPage = () => {
               <div className="grid grid-cols-2 gap-2">
                 {Object.keys(selectedExtras).map((extra, index) => (
                   <div key={index} className="flex items-center text-lg">
-                    <input
+                    <Checkbox
+                      checked={selectedExtras[extra]}
+                      onChange={() => handleExtraToggle(extra)}
+                    />
+                    {/* <input 
                       id={`extra-${index}`}
                       type="checkbox"
                       checked={selectedExtras[extra]}
                       onChange={() => handleExtraToggle(extra)}
-                      className="h-5 w-5 mr-2 accent-amber-800"
-                    />
+                      className="h-5 w-5 mr-2 accent-red"
+                    /> */}
                     <label
                       htmlFor={`extra-${index}`}
                       className={`transition-all duration-300 ${
@@ -182,8 +179,6 @@ const DishDetailsPage = () => {
               </p>
             </div>
           )}
-
-        
         </div>
       </div>
     </div>

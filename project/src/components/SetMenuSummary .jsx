@@ -44,6 +44,7 @@ const SetMenuSummary = () => {
       price: setMenu.price,
       menu: "set",
       count: 1,
+      paid: false,
       // Save the selected dish details for potential later display.
       selections: selectedItems,
     };
@@ -59,9 +60,8 @@ const SetMenuSummary = () => {
 
   return (
     <div className="fixed bottom-16 left-1/2 transform -translate-x-1/2">
-
-    <Button onClick={handleAddSetMenuToCart}> Add To Cart</Button>
-   </div>
+      <Button onClick={handleAddSetMenuToCart}> Add To Cart</Button>
+    </div>
   );
 };
 

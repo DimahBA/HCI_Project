@@ -4,20 +4,20 @@ import { useDispatch, useSelector } from "react-redux";
 import CartItem from "../components/CartItem";
 import { useNavigate } from "react-router-dom";
 import { BsCartX } from "react-icons/bs";
-import { removeItem, clearCart } from "../slices/cartSlice";
-import { useState } from "react";
-
+import {
+  clearCart,
+  selectCartTotal,
+  createOrderedItems,
+} from "../slices/cartSlice";
 
 const CartPage = () => {
-  // notes: for the item, needs to be thinner
-  // so todo: make a isCart thingy without detail button and smaller (pic smaller)
-  // also should we add a arrow down button?
   const cartItems = useSelector((state) => state.cart.cartItems);
-  console.log("Cart Items", cartItems);
+  // console.log("Cart Items", cartItems);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  let total = 0;
-  cartItems.map((item) => (total = +total + item.price * item.count));
+  const total = useSelector(selectCartTotal);
+  const orderedItems = useSelector((state) => state.cart.orderedItems);
+  console.log("Ordered Items", total);
   return (
     <>
       <h1 className="text-3xl font-bold font-title text-center mt-5 mb-6 text-dark">
@@ -25,7 +25,13 @@ const CartPage = () => {
       </h1>
 
       {/* <div className="flex flex-col gap-0"> */}
-      <div className="border-t border-1 rounded border-light-dark mx-4 mb-6 "></div>
+      <div className="border-t border-1 rounded border-light-dark mx-4 mb-4 "></div>
+      <div className="flex justify-between ml-6 mr-6 text-lg font-bold text-dark mb-4">
+        <span className="font-title">Total:</span>
+
+        <span className="font-body">{total}€</span>
+      </div>
+      <div className="border-t border-1 rounded border-light-dark mx-4 mb-4 "></div>
 
       {cartItems.length !== 0 ? (
         <div className="mb-24">
@@ -49,12 +55,6 @@ const CartPage = () => {
               ></textarea>
             </div>
           </div>
-
-          <div className="flex justify-between ml-6 mr-6 text-lg font-bold text-dark">
-            <span className="font-title">Total:</span>
-
-            <span className="font-body">{total}€</span>
-          </div>
         </div>
       ) : (
         <div className="flex flex-col items-center  gap-4 justify-center h-[70%]">
@@ -68,13 +68,21 @@ const CartPage = () => {
       )}
       {/* </div> */}
       <div className="fixed w-full  max-w-md  bottom-16 left-1/2 transform -translate-x-1/2 flex justify-center gap-1 px-4 ">
-      <Button onClick={() => navigate("/menu")}>Add more</Button>
-      {cartItems.length !== 0 && (
-        <>
-          <Button onClick={() => dispatch(clearCart())}>Clear all</Button>
-          <Button onClick={() => navigate("/ordered")}>Order</Button>
-        </>
-      )}
+        <Button onClick={() => navigate("/menu")}>Add more</Button>
+        {cartItems.length !== 0 && (
+          <>
+            <Button onClick={() => dispatch(clearCart())}>Clear all</Button>
+            <Button
+              onClick={() => {
+                navigate("/ordered");
+                dispatch(createOrderedItems());
+                dispatch(clearCart());
+              }}
+            >
+              Order
+            </Button>
+          </>
+        )}
       </div>
     </>
   );

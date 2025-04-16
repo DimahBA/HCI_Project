@@ -1,13 +1,14 @@
 import React from "react";
 
-const Checkbox = ({ checked, onChange, className }) => {
+const Checkbox = ({ checked, onChange }) => {
   return (
-    <div
-      className={`w-6 h-6 border cursor-pointer flex items-center justify-center ${checked ? 'bg-light border-dark' : 'border-dark'} ${className || ''}`}
-      onClick={onChange}
-    >
-      {checked && <span className="text-red">✓</span>}
-    </div>
+    <input
+      id={`custom`}
+      type="checkbox"
+      checked={checked}
+      onChange={onChange}
+      className="h-5 w-5 mr-2 accent-red via-light"
+    />
   );
 };
 export default Checkbox;

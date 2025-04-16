@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setSelectedMenuId } from "../slices/setMenuSlice";
-
+import { selectCartItemCount } from "../slices/cartSlice";
 // Navbar.jsx
 export default function Navbar() {
   const cartItems = useSelector((state) => state.cart.cartItems);
@@ -16,19 +16,19 @@ export default function Navbar() {
   const selectedMenuId = useSelector((state) => state.setMenu.selectedMenuId);
   const [currentPage, setCurrentPage] = useState(location.pathname);
   // console.log("Current Page", currentPage);
-  useEffect(() => {
-    setCurrentPage(location.pathname);
-  }, [location.pathname]);
-  const [itemCount, setCount] = useState(0);
-  useEffect(() => {
-    let total = 0;
-    cartItems.forEach((item) => {
-      if (item.count > 0) {
-        total += item.count;
-      }
-    });
-    setCount(total);
-  }, [cartItems]);
+  // useEffect(() => {
+  //   setCurrentPage(location.pathname);
+  // }, [location.pathname]);
+  // const [itemCount, setCount] = useState(0);
+  // useEffect(() => {
+  //   let total = 0;
+  //   cartItems.forEach((item) => {
+  //     if (item.count > 0) {
+  //       total += item.count;
+  //     }
+  //   });
+  //   setCount(total);
+  // }, [cartItems]);
   // console.log("items,", itemCount);
 
   return (
@@ -72,7 +72,7 @@ export default function Navbar() {
             color={location.pathname === "/cart" ? "#6f1d1b" : "#b79a71"}
           />
           <span className="bg-red rounded-full w-3.5 h-3.5 absolute bottom-5 -right-1 text-[9px] text-center text-light ">
-            {itemCount}
+            {useSelector(selectCartItemCount)}
           </span>
         </button>
       </div>
