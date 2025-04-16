@@ -8,6 +8,8 @@ import HelpPage from "./pages/HelpPage";
 import DishDetailsPage from "./pages/DishDetailsPage";
 import CartPage from "./pages/CartPage";
 import OrderedPage from "./pages/OrderedPage";
+import PaymentPage from "./pages/PaymentPage";
+
 import RatingPage from "./pages/RatingPage";
 
 import { useSelector } from "react-redux";
@@ -105,6 +107,17 @@ function App() {
               </DefaultLayout>
             }
           />
+
+          <Route
+            path="/PaymentPage"
+            element={
+              <DefaultLayout>
+                <PaymentPage />
+              </DefaultLayout>
+
+            }
+          />
+
         </Routes>
       </div>
     </Router>
