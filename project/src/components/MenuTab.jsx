@@ -31,7 +31,7 @@ const MenuItem = ({ name, isActive, onClick }) => {
 
 const MenuTab = ({ categories, activeMenu, setActiveMenu }) => {
   return (
-    <div className="overflow-x-auto max-w-full w-full flex no-scrollbar justify-center">
+    <div className="overflow-x-auto scrollable max-w-full w-full flex no-scrollbar justify-center">
       <ul className="flex items-center m-0 whitespace-nowrap ">
         {categories.map((category) => (
           <MenuItem
