@@ -104,7 +104,7 @@ const MenuPage = () => {
         />
 
         {/* Filters */}
-        <div className="overflow-x-auto w-full mt-6 ">
+        <div className="overflow-x-auto w-full mt-6 scrollable ">
           <ul className="flex items-center m-0 p-0 whitespace-nowrap justify-evenly w-full gap-1">
             {availableFilters.map((filter) => (
               <Filter

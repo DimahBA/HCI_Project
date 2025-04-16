@@ -70,7 +70,7 @@ const Item = ({
           </div>
 
           <span className="font-body  text-start">{description}</span>
-          {date && <p className="text-sm text-light">*{date}</p>}
+          {date && <p className="text-sm text-light">*Only available between: {date}</p>}
           {!isSetMenu && (
             <div className="w-full flex items-center justify-between gap-2 mt-2">
               <div className="flex items-center justify-center gap-1.5">

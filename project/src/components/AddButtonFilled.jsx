@@ -65,7 +65,7 @@ export default function AddButton({ menuItems }) {
         </div>
       )}
       <div className="fixed bottom-16 left-1/2 transform -translate-x-1/2">
-        <Button
+        {/* <Button
           onClick={() => {
             if (count === 0) {
               setCount(1);
@@ -79,7 +79,7 @@ export default function AddButton({ menuItems }) {
           }}
         >
           Save and Add to Cart
-        </Button>
+        </Button> */}
       </div>
     </div>
   );
