@@ -57,8 +57,8 @@ const CartPage = () => {
           </div>
         </div>
       ) : (
-        <div className="flex flex-col items-center  gap-4 justify-center ">
-          <div className="flex  flex-col justify-center items-center gap-8 opacity-45  w-full h-full mt-44">
+        <div className="flex flex-col items-center  gap-4 justify-center h-[70%]">
+          <div className="flex  flex-col justify-center items-center gap-8 opacity-45  w-full h-full ">
             <BsCartX className="text-2xl w-full h-50 text-light-dark" />{" "}
             <p className="text-center font-body font-bold text-light-dark text-xl">
               Your cart is empty.
