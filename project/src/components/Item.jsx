@@ -17,6 +17,7 @@ const Item = ({
 
   date,
   onClick,
+  activeMenu,
 }) => {
   const { name, price, image, description, id } = menuItems;
 
@@ -24,7 +25,8 @@ const Item = ({
   // const [count, setCount] = useState(0);
 
   const handleViewDetails = () => {
-    navigate(`/dish/${id}`);
+    // navigate(`/dish/${id}`);
+    navigate(`/dish/${id}`, { state: { activeCategory: activeMenu } });
   };
   function isAvailableBetween(startHour, endHour) {
     const now = new Date();

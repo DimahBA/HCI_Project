@@ -8,12 +8,26 @@ import SetMenuSummary from "../components/SetMenuSummary ";
 import { setSetMenuItem } from "../slices/setMenuSlice";
 import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
+
 
 const MenuPage = () => {
   const { categories, filters, drinkFilters,  menuTitle } = menuData;
   const cartItems = useSelector((state) => state.cart.cartItems);
 
-  const [activeMenu, setActiveMenu] = useState(categories[0].name);
+ 
+  const { state } = useLocation();
+  const [activeMenu, setActiveMenu] = useState(categories[0].name); 
+
+  useEffect(() => {
+    if (state?.activeCategory) {
+      setActiveMenu(state.activeCategory);
+    }
+  }, [state]);
+
+  
+
+  // const [activeMenu, setActiveMenu] = useState(categories[0].name);
   const [selectedFilters, setSelectedFilters] = useState([]);
 
   const selectedMenuId = useSelector((state) => state.setMenu.selectedMenuId);
@@ -134,6 +148,7 @@ const MenuPage = () => {
               }}
               key={item.id}
               tags={item.tags}
+              activeMenu={activeMenu}
               isSetSelected={selectedMenuId ? true : false}
               // name={item.name}
               // price={selectedMenuId ? "" : item.price}

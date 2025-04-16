@@ -1,15 +1,15 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function BackButton() {
+export default function BackButton({ onClick }) {
   const navigate = useNavigate();
-  const goBack = () => {
+  const defaultGoBack = () => {
     navigate(-1);
   };
 
   return (
     <button 
-      onClick={goBack} 
+      onClick={onClick || defaultGoBack} 
       className="bg-light text-red rounded-full w-12 h-12 flex items-center justify-center shadow-md"
     >
       <svg

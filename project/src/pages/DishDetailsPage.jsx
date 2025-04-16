@@ -12,8 +12,14 @@ import AddButton from "../components/AddButtonFilled";
 import BackButtonFilled from "../components/BackButtonFilled";
 import QuantityButton from "../components/QuantityButton";
 import Button from "../components/Button";
+import { useLocation } from 'react-router-dom';
 
 const DishDetailsPage = () => {
+
+  const { state } = useLocation();
+  const activeMenu = state?.activeCategory;
+
+
   const { id } = useParams();
   const navigate = useNavigate();
   const [dish, setDish] = useState(null);
@@ -48,7 +54,7 @@ const DishDetailsPage = () => {
   };
 
   const goBack = () => {
-    navigate(-1);
+    navigate('/menu', { state: { activeCategory: activeMenu } });
   };
 
 
