@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import OrderItem from "../components/OrderItem";
 import Checkbox from "../components/Checkbox";
-
+import { setIsCustomPaid } from "../slices/cartSlice";
 import {
   selectUnpaidOrderedTotal,
   setRemainingAmount,
@@ -22,16 +22,8 @@ const PaymentPage = () => {
     [orderedItems]
   );
 
-  /* running totals */
-  const unpaidTotal = useSelector(selectUnpaidOrderedTotal);
   const remainingAmount = useSelector((state) => state.cart.remainingAmount);
 
-  /* keep store.remainingAmount in sync with what is still unpaid */
-  useEffect(() => {
-    dispatch(setRemainingAmount(unpaidTotal));
-  }, [dispatch, unpaidTotal]);
-
-  /* checkboxes: always pre‑select every unpaid item */
   const [selectedItems, setSelectedItems] = useState(
     unpaidItems.map((it) => it.id)
   );
@@ -40,18 +32,20 @@ const PaymentPage = () => {
     setSelectedItems(unpaidItems.map((it) => it.id));
   }, [unpaidItems]);
 
-  const [customAmount, setCustomAmount] = useState(remainingAmount);
+  const [customAmount, setCustomAmount] = useState("");
   const [amountError, setAmountError] = useState("");
-  const [isCustomAmount, setIsCustomAmount] = useState(false);
+  const isPaidByCustom = useSelector((state) => state.cart.isCustomPaid);
+  const [isCustomAmount, setIsCustomAmount] = useState(isPaidByCustom);
   const [selectedAmount, setSelectedAmount] = useState(0);
 
-  /* toggle individual items */
   const toggleItemSelection = (id) => {
     setSelectedItems((prev) =>
       prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
     );
   };
-
+  useEffect(() => {
+    setCustomAmount(remainingAmount);
+  }, [isCustomAmount]);
   /* update displayed amount whenever choices change */
   useEffect(() => {
     let error = "";
@@ -88,8 +82,12 @@ const PaymentPage = () => {
       setAmountError("Please write or select an amount to pay.");
       return;
     }
-
+    if (isCustomAmount) {
+      dispatch(setIsCustomPaid(true));
+      // setIsPaidByCustom(true);
+    }
     /* debit from remaining */
+
     dispatch(setRemainingAmount(remainingAmount - selectedAmount));
 
     /* if paying exact items (not custom), mark them as paid */
@@ -100,6 +98,10 @@ const PaymentPage = () => {
 
     /* if balance cleared, mark everything + go to rating */
     if (remainingAmount - selectedAmount === 0) {
+      dispatch(setIsCustomPaid(false));
+      localStorage.setItem("custom", JSON.stringify(false));
+      localStorage.setItem("remaining", JSON.stringify(0));
+
       const allIds = unpaidItems.map((it) => it.id);
       if (allIds.length) dispatch(markItemsPaid(allIds));
       navigate("/rating");
@@ -114,35 +116,42 @@ const PaymentPage = () => {
       </h1>
 
       {/* choose‑items vs custom‑amount toggle */}
-      <div className="px-4 mb-4">
-        <label className="flex items-center justify-center text-dark text-lg font-medium mb-2">
-          <Checkbox
-            checked={!isCustomAmount}
-            onChange={() => setIsCustomAmount(!isCustomAmount)}
-          />
-          Choose the item that you want to pay
-        </label>
-      </div>
-
-      <div className="border-t border-1 rounded border-light-dark mx-4 mb-4"></div>
-
-      {/* list of still‑unpaid items */}
-      <ul className="mb-4">
-        {unpaidItems.length ? (
-          unpaidItems.map((it) => (
-            <OrderItem
-              key={it.id}
-              item={it}
-              isSelected={!isCustomAmount && selectedItems.includes(it.id)}
-              onToggleSelect={!isCustomAmount && toggleItemSelection}
-            />
-          ))
-        ) : (
-          <p className="text-center text-light-dark py-4">
-            All items paid – thank you!
-          </p>
-        )}
-      </ul>
+      {
+        <div
+          className={`${
+            isPaidByCustom ? "pointer-events-none opacity-50" : ""
+          }`}
+        >
+          <div className="px-4 mb-4">
+            <label className="flex items-center justify-center text-dark text-lg font-medium mb-2">
+              <Checkbox
+                disabled={isPaidByCustom}
+                checked={!isCustomAmount}
+                onChange={() => setIsCustomAmount(!isCustomAmount)}
+              />
+              Choose the item that you want to pay
+            </label>
+          </div>
+          <div className="border-t border-1 rounded border-light-dark mx-4 mb-4"></div>
+          {/* list of still‑unpaid items */}
+          <ul className="mb-4">
+            {unpaidItems.length ? (
+              unpaidItems.map((it) => (
+                <OrderItem
+                  key={it.id}
+                  item={it}
+                  isSelected={!isCustomAmount && selectedItems.includes(it.id)}
+                  onToggleSelect={toggleItemSelection}
+                />
+              ))
+            ) : (
+              <p className="text-center text-light-dark py-4">
+                All items paid – thank you!
+              </p>
+            )}
+          </ul>{" "}
+        </div>
+      }
 
       <div className="border-t border-1 rounded border-light-dark mx-4 mb-4"></div>
 
@@ -151,8 +160,12 @@ const PaymentPage = () => {
         <div className="flex items-center justify-between">
           <label className="flex items-center text-dark">
             <Checkbox
-              checked={isCustomAmount}
-              onChange={() => setIsCustomAmount(!isCustomAmount)}
+              checked={!isPaidByCustom ? isCustomAmount : true}
+              onChange={
+                !isPaidByCustom
+                  ? () => setIsCustomAmount(!isCustomAmount)
+                  : () => setIsCustomAmount(true)
+              }
               className="mr-2"
             />
             <span>Or customize amount</span>
@@ -175,7 +188,11 @@ const PaymentPage = () => {
           />
         </div>
         {amountError && (
-          <p className="text-red text-sm mt-1 text-right">*{amountError}</p>
+          <div className="relative">
+            <p className="text-red text-sm mt-1 text-right absolute top-0 right-0 z-50 ">
+              *{amountError}
+            </p>
+          </div>
         )}
       </div>
 

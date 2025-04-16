@@ -17,7 +17,7 @@ const CartPage = () => {
   const dispatch = useDispatch();
   const total = useSelector(selectCartTotal);
   const orderedItems = useSelector((state) => state.cart.orderedItems);
-  console.log("Ordered Items", total);
+  // console.log("Ordered Items", total);
   return (
     <>
       <h1 className="text-3xl font-bold font-title text-center mt-5 mb-6 text-dark">

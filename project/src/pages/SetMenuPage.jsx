@@ -16,7 +16,7 @@ const SetMenuPage = () => {
     navigate("/menu");
   };
   const selectedMenuId = useSelector((state) => state.setMenu.selectedMenuId);
-  console.log("Selected Menu ID:", selectedMenuId);
+  // console.log("Selected Menu ID:", selectedMenuId);
 
   return (
     <>

@@ -8,24 +8,20 @@ import SetMenuSummary from "../components/SetMenuSummary ";
 import { setSetMenuItem } from "../slices/setMenuSlice";
 import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
-import { useLocation } from 'react-router-dom';
-
+import { useLocation } from "react-router-dom";
 
 const MenuPage = () => {
-  const { categories, filters, drinkFilters,  menuTitle } = menuData;
+  const { categories, filters, drinkFilters, menuTitle } = menuData;
   const cartItems = useSelector((state) => state.cart.cartItems);
 
- 
   const { state } = useLocation();
-  const [activeMenu, setActiveMenu] = useState(categories[0].name); 
+  const [activeMenu, setActiveMenu] = useState(categories[0].name);
 
   useEffect(() => {
     if (state?.activeCategory) {
       setActiveMenu(state.activeCategory);
     }
   }, [state]);
-
-  
 
   // const [activeMenu, setActiveMenu] = useState(categories[0].name);
   const [selectedFilters, setSelectedFilters] = useState([]);
@@ -42,25 +38,25 @@ const MenuPage = () => {
   };
   const allowedCategories = allowedCategoriesMap[selectedMenuId];
 
-  console.log("Selected Menu ID:", selectedMenuId);
+  // console.log("Selected Menu ID:", selectedMenuId);
   const handleFilterToggle = (filterName) => {
     if (filterName === "Alcohol" || filterName === "Soft") {
       if (selectedFilters.includes("Alcohol") && filterName === "Soft") {
-        setSelectedFilters(["Soft"]); 
+        setSelectedFilters(["Soft"]);
       } else if (selectedFilters.includes("Soft") && filterName === "Alcohol") {
-        setSelectedFilters(["Alcohol"]); 
+        setSelectedFilters(["Alcohol"]);
       } else if (selectedFilters.includes(filterName)) {
         setSelectedFilters([]);
-      }else {
+      } else {
         setSelectedFilters([filterName]);
       }
     } else {
-    setSelectedFilters((prev) =>
-      prev.includes(filterName)
-        ? prev.filter((f) => f !== filterName)
-        : [...prev, filterName]
-    );
-  }
+      setSelectedFilters((prev) =>
+        prev.includes(filterName)
+          ? prev.filter((f) => f !== filterName)
+          : [...prev, filterName]
+      );
+    }
   };
 
   const activeCategory = categories.find((cat) => cat.name === activeMenu);
@@ -87,13 +83,12 @@ const MenuPage = () => {
 
   useEffect(() => {
     if (isDrinks(previousActiveMenu) && !isDrinks(activeMenu)) {
-      setSelectedFilters([]); 
+      setSelectedFilters([]);
     }
-    setPreviousActiveMenu(activeMenu); 
+    setPreviousActiveMenu(activeMenu);
   }, [activeMenu, previousActiveMenu]);
 
   const availableFilters = isDrinks(activeMenu) ? drinkFilters : filters;
-
 
   return (
     <>

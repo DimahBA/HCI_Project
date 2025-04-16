@@ -1,38 +1,25 @@
 import Button from "../components/Button";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import CartItem from "../components/CartItem";
 import { useState, useEffect } from "react";
 import { BsClock } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import Timer from "../components/Timer";
-import { selectOrderedTotal } from "../slices/cartSlice";
+import { selectOrderedTotal, setRemainingAmount } from "../slices/cartSlice";
+import OrderItem from "../components/OrderItem";
 
 const OrderedPage = () => {
   // const orderedItems = useSelector((state) => state.cart.orderedItems);
   const orderedItems = useSelector((state) => state.cart.orderedItems);
-  console.log("Ordered Items", orderedItems);
+  // console.log("Ordered Items", orderedItems);
   const total = useSelector(selectOrderedTotal);
+  const dispatch = useDispatch();
+  /* keep store.remainingAmount in sync with what is still unpaid */
+  useEffect(() => {
+    dispatch(setRemainingAmount(total));
+  }, [dispatch, total]);
 
-  // const timerDuration = 1;
-  // const [time, setTime] = useState(timerDuration * 60);
   const navigate = useNavigate();
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setTime((prevTime) => {
-  //       if (prevTime > 0) {
-  //         return prevTime - 1;
-  //       } else {
-  //         clearInterval(interval);
-  //         return 0;
-  //       }
-  //     });
-  //   }, time);
-
-  //   return () => clearInterval(interval);
-  // }, [time]);
-
-  // const minutes = Math.floor(time / 60);
-  // const seconds = time % 60;
 
   return (
     <div className="text-dark ">
@@ -48,13 +35,6 @@ const OrderedPage = () => {
         <div className="inline-flex items-center bg-red text-light py-4 px-6 rounded-full">
           <BsClock className="mr-2 text-4xl" />
           <Timer />
-          {/* {time === 0 ? (
-            <p className="text-lg">Should arrive soon...</p>
-          ) : (
-            <p className="text-3xl">
-              {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
-            </p>
-          )} */}
         </div>
       </div>
       <div className="border-t border-1 rounded border-light-dark mx-4 mb-4 "></div>
@@ -66,7 +46,8 @@ const OrderedPage = () => {
       <div className="border-t border-1 rounded border-light-dark mx-4 mb-4 "></div>
       <div className="mb-24">
         {orderedItems.map((item) => (
-          <CartItem key={item.id} item={item} />
+          <OrderItem key={item.id} item={item} isCheckBox={true} />
+          // <CartItem countNotPossible key={item.id} item={item} />
         ))}
 
         <div className="border-t border-1 rounded border-light-dark mx-4 mb-6 "></div>

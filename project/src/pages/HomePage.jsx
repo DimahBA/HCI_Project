@@ -19,7 +19,7 @@ const HomePage = () => {
     navigate("/set-menus");
   };
   const goToSettingsPage = () => {
-    console.log("here");
+    // console.log("here");
     navigate("/settings");
   };
   const goToHelpPage = () => {

@@ -1,11 +1,8 @@
 import React from "react";
 import Item from "./Item";
 import { IoIosRemoveCircleOutline } from "react-icons/io";
-import {
-  increaseCount,
-  removeItem,
-  decreaseCount,
-} from "../slices/cartSlice";import { useDispatch } from "react-redux";
+import { increaseCount, removeItem, decreaseCount } from "../slices/cartSlice";
+import { useDispatch } from "react-redux";
 
 const CartItem = ({ item }) => {
   const isSet = item.menu === "set";
@@ -28,10 +25,9 @@ const CartItem = ({ item }) => {
             <p className="text-xl font-bold font-title text-light">
               {item.price}€
             </p>
-            {/* <p className="font-body text-sm">Quantity: {item.count}</p> */}
           </div>
         </div>
-        {/* {isSet && item.selections && ( */}{" "}
+
         <div className="mt-4 border-t border-light-dark pt-4 flex items-center justify-between">
           <div>
             <h3 className="text-xl font-title text-light">Selections:</h3>
@@ -47,9 +43,6 @@ const CartItem = ({ item }) => {
               ))}
             </ul>
           </div>
-          {/* <button onClick={() => dispatch(removeItem(item.id))}>
-            <IoIosRemoveCircleOutline size={40} className="text-light" />
-          </button> */}
 
           <div className="flex text-light flex-col items-end gap-2">
             <div className="flex items-center gap-2 border-2 border-light rounded-full h-8 px-3">

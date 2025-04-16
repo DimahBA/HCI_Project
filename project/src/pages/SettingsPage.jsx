@@ -12,13 +12,15 @@ const SettingsPage = () => {
   const { contrast, bigFont, simpleMode, darkMode } = useSelector(
     (state) => state.accessibility
   );
-  console.log("SettingsPage", contrast, bigFont, simpleMode, darkMode);
+  // console.log("SettingsPage", contrast, bigFont, simpleMode, darkMode);
 
   return (
     <>
       <div className="flex flex-col items-center p-6 mt-20 ">
         <div className="flex flex-col items-center">
-          <h1 className="text-3xl font-bold text-center mt-8 font-title text-dark">Settings</h1>
+          <h1 className="text-3xl font-bold text-center mt-8 font-title text-dark">
+            Settings
+          </h1>
           <span className="w-full border-t rounded border-1 border-light-dark my-8"></span>
 
           <div className="flex flex-col gap-4">

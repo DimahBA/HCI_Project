@@ -3,7 +3,9 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   cartItems: JSON.parse(localStorage.getItem("cart")) || [],
   orderedItems: JSON.parse(localStorage.getItem("orderedItems") || "[]") || [],
-  remainingAmount: 0,
+  remainingAmount:
+  JSON.parse(localStorage.getItem("remaining")) || 0,
+  isCustomPaid: JSON.parse(localStorage.getItem("custom")) || false,
 };
 
 const cartSlice = createSlice({
@@ -15,6 +17,11 @@ const cartSlice = createSlice({
     },
     setRemainingAmount: (state, action) => {
       state.remainingAmount = action.payload;
+      localStorage.setItem("remaining", JSON.stringify(state.remainingAmount));
+    },
+    setIsCustomPaid: (state, action) => {
+      state.isCustomPaid = action.payload;
+      localStorage.setItem("custom", JSON.stringify(state.isCustomPaid));
     },
     createOrderedItems: (state) => {
       state.orderedItems = [...state.cartItems];
@@ -59,6 +66,7 @@ export const {
   createOrderedItems,
   setRemainingAmount,
   markItemsPaid,
+  setIsCustomPaid
 } = cartSlice.actions;
 
 /* Selectors */
