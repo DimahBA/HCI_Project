@@ -8,6 +8,7 @@ import HelpPage from "./pages/HelpPage";
 import DishDetailsPage from "./pages/DishDetailsPage";
 import CartPage from "./pages/CartPage";
 import OrderedPage from "./pages/OrderedPage";
+import RatingPage from "./pages/RatingPage";
 
 import { useSelector } from "react-redux";
 
@@ -87,6 +88,14 @@ function App() {
             element={
               <DefaultLayout>
                 <OrderedPage />
+              </DefaultLayout>
+            }
+          />
+          <Route
+            path="/rating"
+            element={
+              <DefaultLayout>
+                <RatingPage />
               </DefaultLayout>
             }
           />

@@ -3,6 +3,7 @@ import {  useSelector } from "react-redux";
 import CartItem from "../components/CartItem";
 import { useState, useEffect } from "react";
 import { BsClock } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
 const OrderedPage = () => {
   
@@ -13,7 +14,7 @@ const OrderedPage = () => {
 
   const timerDuration = 1;
   const [time, setTime] = useState(timerDuration * 60);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const interval = setInterval(() => {
       setTime(prevTime => {
@@ -74,7 +75,7 @@ const OrderedPage = () => {
       <div className="fixed w-full  max-w-md  bottom-16 left-1/2 transform -translate-x-1/2 flex justify-center gap-1 px-4 ">
       
       
-          <Button>Proceed To Payment</Button>
+          <Button onClick={() => navigate("/rating")}>Proceed To Payment</Button>
         
       </div>
     </>
