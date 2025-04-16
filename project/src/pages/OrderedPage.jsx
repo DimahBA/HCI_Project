@@ -81,35 +81,7 @@ const OrderedPage = () => {
         <Button onClick={handleProceedToPayment}>Proceed To Payment</Button>
 
       </div>
-      <div className="w-full flex justify-center mb-4">
-        <div className="inline-flex items-center bg-red text-light py-4 px-6 rounded-full">
-          <BsClock className="mr-2 text-4xl" />
-          {time === 0 ? (
-            <p className="text-lg">Should arrive soon...</p>
-          ) : (
-            <p className="text-3xl">
-              {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
-            </p>
-          )}
-        </div>
-      </div>
-      <div className="border-t border-1 rounded border-light-dark mx-4 mb-4 "></div>
-      <div className="flex justify-between ml-5 mr-5 mb-4 text-lg font-bold ">
-        <span className="font-title">Total:</span>
 
-        <span className="font-body">{total}€</span>
-      </div>{" "}
-      <div className="border-t border-1 rounded border-light-dark mx-4 mb-4 "></div>
-      <div className="mb-24">
-        {cartItems.map((item) => (
-          <CartItem key={item.id} item={item} />
-        ))}
-
-        <div className="border-t border-1 rounded border-light-dark mx-4 mb-6 "></div>
-      </div>
-      <div className="fixed w-full  max-w-md  bottom-16 left-1/2 transform -translate-x-1/2 flex justify-center gap-1 px-4 ">
-        <Button onClick={() => navigate("/rating")}>Proceed To Payment</Button>
-      </div>
     </div>
   );
 };

@@ -182,7 +182,7 @@ const PaymentPage = () => {
       {/* Pay Button */}
       <div className="fixed w-full max-w-md bottom-24 left-1/2 transform -translate-x-1/2 flex justify-center px-4 mb-4">
         <Button 
-          onClick={handlePayment}
+          onClick={() => navigate("/rating")}
           disabled={customAmount !== "" && amountError !== ""}
         >
           Pay
