@@ -5,6 +5,8 @@ import vegetarian from "../assets/icons/vegetarian.svg";
 import vegan from "../assets/icons/vegan.svg";
 import alcohol from "../assets/icons/alcohol.svg";
 import soft from  "../assets/icons/soft.svg";
+import hot from "../assets/icons/hot.svg";
+import cold from  "../assets/icons/cold.svg";
 
 
 const imageMap = {
@@ -13,6 +15,8 @@ const imageMap = {
   Vegan: vegan,
   Alcohol: alcohol,
   Soft: soft,
+  Hot: hot,
+  Cold: cold,
 };
 
 const Filter = ({ name, isActive, onClick }) => {
@@ -25,9 +29,17 @@ const Filter = ({ name, isActive, onClick }) => {
           : "border-green-dark text-green-dark"
       }`}
     >
-     {(name === "Alcohol" || name === "Soft") ? (
+     {
+      (name === "Alcohol" || name === "Soft" || name === "Hot" || name === "Cold") ? (
         <div className="w-7 h-7 flex items-center justify-center border-2 border-green-dark rounded-full mr-2">
-          <img src={name === "Alcohol" ? alcohol : soft} alt={name} className={`w-5 h-5 ${name === "Soft" ? "ml-1" : ""}`} />
+          <img 
+            src={name === "Alcohol" ? alcohol : 
+                name === "Soft" ? soft : 
+                name === "Hot" ? hot : 
+                cold} 
+            alt={name} 
+            className={`${name === "Hot" ? "w-4 h-4" : "w-5 h-5"}  ${name === "Soft" ? "ml-1" : ""}`} 
+          />
         </div>
       ) : (
         <>

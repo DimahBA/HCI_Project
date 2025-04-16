@@ -6,6 +6,8 @@ import vegetarian from "../assets/icons/vegetarian2.svg";
 import vegan from "../assets/icons/vegan2.svg";
 import alcohol from "../assets/icons/alcohol2.svg";
 import soft from  "../assets/icons/soft2.svg";
+import hot from "../assets/icons/hot2.svg";
+import cold from  "../assets/icons/cold2.svg";
 
 const Item = ({
   menuItems,
@@ -103,6 +105,16 @@ const Item = ({
                 {tags?.includes("Soft") && (
                   <div className="w-7 h-7 flex items-center justify-center border-2 border-green rounded-full">
                     <img src={soft} alt="Soft" className="w-4 h-4 ml-1" />
+                  </div>
+                )}
+                {tags?.includes("Hot") && (
+                  <div className="w-7 h-7 flex items-center justify-center border-2 border-green rounded-full">
+                  <img src={hot} alt="Hot" className="w-4 h-4 " />
+                  </div>
+                )}
+                {tags?.includes("Cold") && (
+                  <div className="w-7 h-7 flex items-center justify-center border-2 border-green rounded-full">
+                  <img src={cold} alt="Cold" className="w-5 h-5 " />
                   </div>
                 )}
               </div>
