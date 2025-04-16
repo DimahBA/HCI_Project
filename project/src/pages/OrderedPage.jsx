@@ -11,6 +11,10 @@ const OrderedPage = () => {
   let total = 0;
   cartItems.map((item) => (total = +total + item.price * item.count));
 
+  const handleProceedToPayment = () => {
+    navigate("/payment-page");
+  };
+
   const timerDuration = 1;
   const [time, setTime] = useState(timerDuration * 60);
   const navigate = useNavigate();
