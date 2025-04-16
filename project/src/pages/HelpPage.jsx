@@ -12,7 +12,7 @@ const HelpPage = () => {
 
       <div className="flex-col items-center p-6 text-dark">
         <div className="flex-col items-center">
-          <h1 className="text-4xl font-bold text-center mb-2">Help</h1>
+          <h1 className="text-3xl font-bold text-center mb-2">Help</h1>
 
           <div className="flex-col gap-6 mb-4 w-full max-w-3xl">  
             <div className="text-2xl font-semibold text-center mb-3">How this website works:</div>

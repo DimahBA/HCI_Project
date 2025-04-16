@@ -31,7 +31,7 @@ const DishDetailsPage = () => {
         if (foundDish.extras && foundDish.extras.length > 0) {
           const initialExtras = {};
           foundDish.extras.forEach((extra) => {
-            initialExtras[extra] = true; // Set to true by default
+            initialExtras[extra] = false; // Set to false by default
           });
           setSelectedExtras(initialExtras);
         }
@@ -173,10 +173,7 @@ const DishDetailsPage = () => {
             </div>
           )}
 
-          {/* Save and Add to Cart Button */}
-          {/* <div className="fixed bottom-20  w-full max-w-md h-20 flex items-center justify-center">
-            <Button onClick={saveAndAddToCart}>Save and Add to Cart</Button>
-          </div> */}
+        
         </div>
       </div>
     </div>

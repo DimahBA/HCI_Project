@@ -15,10 +15,22 @@ export default function Navbar() {
   const dispatch = useDispatch();
   const selectedMenuId = useSelector((state) => state.setMenu.selectedMenuId);
   const [currentPage, setCurrentPage] = useState(location.pathname);
-  console.log("Current Page", currentPage);
+  // console.log("Current Page", currentPage);
   useEffect(() => {
     setCurrentPage(location.pathname);
   }, [location.pathname]);
+  const [itemCount, setCount] = useState(0);
+  useEffect(() => {
+    let total = 0;
+    cartItems.forEach((item) => {
+      if (item.count > 0) {
+        total += item.count;
+      }
+    });
+    setCount(total);
+  }, [cartItems]);
+  // console.log("items,", itemCount);
+
   return (
     <div className="fixed bottom-0 w-full max-w-md h-15 flex items-center justify-center bg-light shadow-dark shadow-2xl z-30">
       <div className="flex items-center justify-evenly w-full">
@@ -60,7 +72,7 @@ export default function Navbar() {
             color={location.pathname === "/cart" ? "#6f1d1b" : "#b79a71"}
           />
           <span className="bg-red rounded-full w-3.5 h-3.5 absolute bottom-5 -right-1 text-[9px] text-center text-light ">
-            {cartItems.length}
+            {itemCount}
           </span>
         </button>
       </div>

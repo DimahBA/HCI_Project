@@ -14,6 +14,7 @@ import { useSelector } from "react-redux";
 
 import DefaultLayout from "./components/DefaultLayout";
 import SetMenuPage from "./pages/SetMenuPage";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   const accessibility = useSelector((state) => state.accessibility);
@@ -31,6 +32,7 @@ function App() {
   return (
     <Router>
       <div className="relative h-screen w-full max-w-md mx-auto bg-light flex flex-col overflow-hidden">
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route
@@ -99,7 +101,6 @@ function App() {
               </DefaultLayout>
             }
           />
-
         </Routes>
       </div>
     </Router>
