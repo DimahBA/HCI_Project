@@ -6,8 +6,6 @@ import { BsClock } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 
 const OrderedPage = () => {
-  const navigate = useNavigate();
-
   const cartItems = useSelector((state) => state.cart.cartItems);
 
   let total = 0;
@@ -15,6 +13,7 @@ const OrderedPage = () => {
 
   const timerDuration = 1;
   const [time, setTime] = useState(timerDuration * 60);
+  const navigate = useNavigate();
   useEffect(() => {
     const interval = setInterval(() => {
       setTime((prevTime) => {
@@ -33,19 +32,16 @@ const OrderedPage = () => {
   const minutes = Math.floor(time / 60);
   const seconds = time % 60;
 
-  const handleProceedToPayment = () => {
-    navigate("/PaymentPage");
-  };
-
   return (
     <div className="text-dark ">
       <h1 className="text-3xl font-bold font-title text-center mt-5 mb-6 text-dark">
         Order created!
       </h1>
-      <div className="text-center mb-4">
+      {/* <div className="flex flex-col gap-0"> */}
+      <div className="border-t border-1 rounded border-light-dark mx-4 mb-6 "></div>
+      <div className="text-center mb-4 text-dark ">
         <p className="text-xl font-medium">Estimated waiting time:</p>
       </div>
-
       <div className="w-full flex justify-center mb-4">
         <div className="inline-flex items-center bg-red text-light py-4 px-6 rounded-full">
           <BsClock className="mr-2 text-4xl" />
