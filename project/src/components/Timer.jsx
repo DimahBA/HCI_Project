@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 export default function Timer() {
-    const timerDuration = 1;
+    const timerDuration = 25;
 
       const [time, setTime] = useState(timerDuration * 60);
     
