@@ -4,6 +4,8 @@ import AddButton from "./AddButton";
 import glutenFree from "../assets/icons/gluten-free2.svg";
 import vegetarian from "../assets/icons/vegetarian2.svg";
 import vegan from "../assets/icons/vegan2.svg";
+import alcohol from "../assets/icons/alcohol2.svg";
+import soft from  "../assets/icons/soft2.svg";
 
 const Item = ({
   menuItems,
@@ -90,6 +92,16 @@ const Item = ({
                     alt="Gluten Free"
                     className="w-6 h-6 "
                   />
+                )}
+                {tags?.includes("Alcohol") && (
+                  <div className="w-7 h-7 flex items-center justify-center border-2 border-green rounded-full">
+                    <img src={alcohol} alt="Alcohol" className="w-4 h-4" />
+                  </div>
+                )}
+                {tags?.includes("Soft") && (
+                  <div className="w-7 h-7 flex items-center justify-center border-2 border-green rounded-full">
+                    <img src={soft} alt="Soft" className="w-4 h-4 ml-1" />
+                  </div>
                 )}
               </div>
 

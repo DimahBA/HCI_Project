@@ -18,7 +18,6 @@ const DishDetailsPage = () => {
   const navigate = useNavigate();
   const [dish, setDish] = useState(null);
   const [selectedExtras, setSelectedExtras] = useState({});
-  console.log(dish);
   useEffect(() => {
     // Find the dish with the matching id across all categories
     for (const category of menuData.categories) {
@@ -119,13 +118,18 @@ const DishDetailsPage = () => {
               <h3 className="text-2xl font-title font-bold text-red mb-2">
                 Ingredients
               </h3>
-              <div className="grid grid-cols-3 gap-x-2 gap-y-2">
+              <div className="grid grid-cols-3 gap-x-6 gap-y-2">
                 {dish.mainIngredients.map((ingredient, index) => (
-                  <div key={index} className="text-dark text-lg">
+                  <div
+                    key={index}
+                    className="text-dark text-lg "
+                  >
                     {ingredient}
                   </div>
                 ))}
               </div>
+
+
             </div>
           )}
 

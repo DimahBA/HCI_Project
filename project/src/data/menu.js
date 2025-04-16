@@ -1,6 +1,7 @@
 const menuData = {
   menuTitle: "Menu",
   filters: ["Vegetarian", "Vegan", "Gluten Free"],
+  drinkFilters: ["Alcohol", "Soft"],
   categories: [
     {
       id: "starters",
@@ -452,7 +453,7 @@ const menuData = {
           name: "Café",
           price: 3,
           currency: "EUR",
-          tags: ["Vegetarian", "Vegan", "Gluten Free"],
+          tags: ["Soft"],
           image:
             "https://needfrench.com/wp-content/uploads/2023/08/Cafe-Noir-.jpg",
           description: "Freshly brewed espresso.",
@@ -466,21 +467,21 @@ const menuData = {
           name: "Vin Rouge",
           price: 6,
           currency: "EUR",
-          tags: ["Vegetarian", "Vegan", "Gluten Free"],
+          tags: ["Alcohol"],
           image:
             "https://www.gerard-bertrand.com/cdn/shop/products/banyuls-vintage-rouge_fb23eb05-021d-4f20-99a2-ed8f5ded730d.jpg?v=1590151282&width=600",
           description: "Glass of French red wine.",
 
           type: "drink",
           mainIngredients: ["Red grapes"],
-          extras: [""],
+          extras: [],
         },
         {
           id: "vin_blanc",
           name: "Vin Blanc",
           price: 6,
           currency: "EUR",
-          tags: ["Vegetarian", "Vegan", "Gluten Free"],
+          tags: ["Alcohol"],
           image:
             "https://www.gerard-bertrand.com/cdn/shop/products/chateau-de-villemajou-grand-vin-blanc_17ce63ba-d5b6-4956-bc1c-5255298df152.jpg?v=1590151442&width=600",
           description: "Glass of French white wine.",
@@ -493,7 +494,7 @@ const menuData = {
           name: "Bière Blonde",
           price: 5,
           currency: "EUR",
-          tags: ["Vegan", "Vegetarian"],
+          tags: ["Alcohol"],
           image: "https://public-storage.qoqa.ch/1hsgb0ae7ovhqhscmv9gkgyo7m2k",
           description: "Glass of blonde beer with a light, crisp finish.",
           type: "drink",
@@ -505,7 +506,7 @@ const menuData = {
           name: "Champagne",
           price: 7,
           currency: "EUR",
-          tags: ["Vegan", "Vegetarian", "Gluten Free"],
+          tags: ["Alcohol"],
           image:
             "https://www.hestia-events.fr/1519-home_default/flute-a-champagne-13-cl.jpg",
           description: "Glass of Sparkling French champagne — dry and festive.",
@@ -518,7 +519,7 @@ const menuData = {
           name: "Cidre (bouteille)",
           price: 15,
           currency: "EUR",
-          tags: ["Vegan", "Vegetarian", "Gluten Free"],
+          tags: ["Alcohol"],
           image:
             "https://produits.bienmanger.com/2505-0w470h470_Cidre_Fermier_Brut.jpg",
           description: "Bottle of sparkling French apple cider.",
@@ -531,7 +532,7 @@ const menuData = {
           name: "Limonade Maison",
           price: 4,
           currency: "EUR",
-          tags: ["Vegan", "Vegetarian", "Gluten Free"],
+          tags: ["Soft"],
           image:
             "https://images.unsplash.com/photo-1621263764928-df1444c5e859?w=1600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bGltb25hZGV8ZW58MHx8MHx8fDA%3D",
           description:
@@ -545,7 +546,7 @@ const menuData = {
           name: "Jus de Pomme",
           price: 4,
           currency: "EUR",
-          tags: ["Vegan", "Vegetarian", "Gluten Free"],
+          tags: ["Soft"],
           image:
             "https://plus.unsplash.com/premium_photo-1687977548362-c007bccd893f?w=1600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8YXBwbGUlMjBqdWljZXxlbnwwfHwwfHx8MA%3D%3D",
           description: "Glass of cold-pressed cloudy apple juice.",
@@ -558,7 +559,7 @@ const menuData = {
           name: "Jus d'Orange",
           price: 4,
           currency: "EUR",
-          tags: ["Vegan", "Vegetarian", "Gluten Free"],
+          tags: ["Soft"],
           image:
             "https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=1600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8b3JhbmdlJTIwanVpY2V8ZW58MHx8MHx8fDA%3D",
           description: "Glass of freshly squeezed orange juice.",
@@ -571,7 +572,7 @@ const menuData = {
           name: "Thé Glacé",
           price: 4,
           currency: "EUR",
-          tags: ["Vegan", "Vegetarian", "Gluten Free"],
+          tags: ["Soft"],
           image:
             "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=1600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aWNlZCUyMHRlYXxlbnwwfHwwfHx8MA%3D%3D",
           description: "Glass of homemade iced tea with lemon and mint.",

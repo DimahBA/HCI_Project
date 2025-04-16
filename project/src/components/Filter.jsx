@@ -3,11 +3,16 @@ const images = import.meta.glob("../assets/images/*.jpg", { eager: true });
 import glutenFree from "../assets/icons/gluten-free.svg";
 import vegetarian from "../assets/icons/vegetarian.svg";
 import vegan from "../assets/icons/vegan.svg";
+import alcohol from "../assets/icons/alcohol.svg";
+import soft from  "../assets/icons/soft.svg";
+
 
 const imageMap = {
   "Gluten Free": glutenFree,
   Vegetarian: vegetarian,
   Vegan: vegan,
+  Alcohol: alcohol,
+  Soft: soft,
 };
 
 const Filter = ({ name, isActive, onClick }) => {
@@ -20,7 +25,15 @@ const Filter = ({ name, isActive, onClick }) => {
           : "border-green-dark text-green-dark"
       }`}
     >
-      <img src={imageMap[name]} alt={name} className="w-6 h-6 mr-2" />
+     {(name === "Alcohol" || name === "Soft") ? (
+        <div className="w-7 h-7 flex items-center justify-center border-2 border-green-dark rounded-full mr-2">
+          <img src={name === "Alcohol" ? alcohol : soft} alt={name} className={`w-5 h-5 ${name === "Soft" ? "ml-1" : ""}`} />
+        </div>
+      ) : (
+        <>
+          <img src={imageMap[name]} alt={name} className="w-6 h-6 mr-2" />
+        </>
+      )}
       {name}
     </button>
   );

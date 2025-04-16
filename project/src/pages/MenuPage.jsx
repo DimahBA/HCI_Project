@@ -2,7 +2,7 @@ import Item from "../components/Item";
 import Filter from "../components/Filter";
 import menuData from "../data/menu";
 import MenuTab from "../components/MenuTab";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import SetMenuSummary from "../components/SetMenuSummary ";
 import { setSetMenuItem } from "../slices/setMenuSlice";
@@ -10,7 +10,7 @@ import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
 
 const MenuPage = () => {
-  const { categories, filters, menuTitle } = menuData;
+  const { categories, filters, drinkFilters,  menuTitle } = menuData;
   const cartItems = useSelector((state) => state.cart.cartItems);
 
   const [activeMenu, setActiveMenu] = useState(categories[0].name);
@@ -30,11 +30,23 @@ const MenuPage = () => {
 
   console.log("Selected Menu ID:", selectedMenuId);
   const handleFilterToggle = (filterName) => {
+    if (filterName === "Alcohol" || filterName === "Soft") {
+      if (selectedFilters.includes("Alcohol") && filterName === "Soft") {
+        setSelectedFilters(["Soft"]); 
+      } else if (selectedFilters.includes("Soft") && filterName === "Alcohol") {
+        setSelectedFilters(["Alcohol"]); 
+      } else if (selectedFilters.includes(filterName)) {
+        setSelectedFilters([]);
+      }else {
+        setSelectedFilters([filterName]);
+      }
+    } else {
     setSelectedFilters((prev) =>
       prev.includes(filterName)
         ? prev.filter((f) => f !== filterName)
         : [...prev, filterName]
     );
+  }
   };
 
   const activeCategory = categories.find((cat) => cat.name === activeMenu);
@@ -54,6 +66,21 @@ const MenuPage = () => {
   //   (item) => item.id === selectedMenuId
   // ).tags;
   // console.log(allowedCategories);
+
+  const isDrinks = (categoryName) => categoryName === "Drinks";
+
+  const [previousActiveMenu, setPreviousActiveMenu] = useState(activeMenu);
+
+  useEffect(() => {
+    if (isDrinks(previousActiveMenu) && !isDrinks(activeMenu)) {
+      setSelectedFilters([]); 
+    }
+    setPreviousActiveMenu(activeMenu); 
+  }, [activeMenu, previousActiveMenu]);
+
+  const availableFilters = isDrinks(activeMenu) ? drinkFilters : filters;
+
+
   return (
     <>
       <div className="sticky flex flex-col justify-center items-center bg-light top-0  w-full max-w-md mx-autopy-3 px-4 pb-6 z-10">
@@ -79,7 +106,7 @@ const MenuPage = () => {
         {/* Filters */}
         <div className="overflow-x-auto w-full mt-6 ">
           <ul className="flex items-center m-0 p-0 whitespace-nowrap justify-evenly w-full gap-1">
-            {filters.map((filter) => (
+            {availableFilters.map((filter) => (
               <Filter
                 key={filter}
                 name={filter}
