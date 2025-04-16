@@ -7,6 +7,7 @@ import { BsCartX } from "react-icons/bs";
 import { removeItem, clearCart } from "../slices/cartSlice";
 import { useState } from "react";
 
+
 const CartPage = () => {
   // notes: for the item, needs to be thinner
   // so todo: make a isCart thingy without detail button and smaller (pic smaller)
@@ -17,7 +18,6 @@ const CartPage = () => {
   const dispatch = useDispatch();
   let total = 0;
   cartItems.map((item) => (total = +total + item.price * item.count));
-  console.log("Total Price", total);
   return (
     <>
       <h1 className="text-3xl font-bold font-title text-center mt-5 mb-6 text-dark">
