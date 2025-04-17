@@ -1,6 +1,6 @@
-# React Application
+# Interactive Menu App
 
-This is a modular React application using React Router for routing and Redux Toolkit for state management. The project is structured for scalability and maintainability, with clear separation of concerns between UI components, pages, static data, and global state.
+This interactive menu website is designed to provide a user-friendly interface for browsing and selecting menu items for a restaurant. The site allows users to explore categories, view details of each dish, and filter options based on preferences like dietary restrictions. The goal is to offer a seamless and engaging experience while making it easy for users to interact with the menu.
 
 
 ## Website
@@ -29,7 +29,7 @@ The application interface includes the following main sections:
 
 
 ## Project Structure
-
+```bash
 src/
 ├── App.js               # Main application component with route definitions
 ├── index.js             # Entry point that renders the app
@@ -55,7 +55,7 @@ src/
 │   └── setMenuSlice.js
 │   └── accessibilitySlice.js
 
-
+```
 ## Getting Started
 
 ### Prerequisites
@@ -73,13 +73,14 @@ git clone https://github.com/DimahBA/HCI_Project.git
 cd HCI_Project/project
 
 npm install
-
+```
 
 Starting the Development Server
 To start the app in development mode:
 
+```
 npm run dev
-
+```
 The app will be available at http://localhost:5173/
 
 Routing
