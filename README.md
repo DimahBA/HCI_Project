@@ -5,11 +5,7 @@ This interactive menu website is designed to provide a user-friendly interface f
 
 ## Website
 
-The website can be found there: https://lucent-profiterole-b04284.netlify.app/
-
-## Functionalities
-
-....
+The website can be found there: https://interactive-menu-app.netlify.app/
 
 
 ## Interface
@@ -27,6 +23,15 @@ The application interface includes the following main sections:
 - **Header**: Table number, settings and help
 
 
+
+## Tech Stack
+
+- **React 18** – SPA framework
+- **Tailwind CSS** – utility‑first styling
+- **React Router v6** – Routes are defined in App.js using react-router-dom. Each route corresponds to a page in the pages/ directory.
+- **Redux Toolkit** – Redux Toolkit is used to manage global state. Slices are defined in the slices/ directory and combined in a Redux store.
+- **React Icons** – React icons library used for graphic elements along with icons that are stored in src/assets/icons 
+- **Static JSON data** – menu & set‑menu data is loaded from files in `src/data/`
 
 ## Project Structure
 ```bash
@@ -61,7 +66,7 @@ src/
 ### Prerequisites
 
 - Node.js (version 14 or above recommended)
-- npm 
+- npm or yarn 
 
 ### Installation
 
@@ -78,16 +83,8 @@ npm install
 Starting the Development Server
 To start the app in development mode:
 
-```
+```bash
 npm run dev
 ```
 The app will be available at http://localhost:5173/
 
-Routing
-Routes are defined in App.js using react-router-dom. Each route corresponds to a page in the pages/ directory.
-
-State Management
-Redux Toolkit is used to manage global state. Slices are defined in the slices/ directory and combined in a Redux store.
-
-Assets
-Images and icons are stored in src/assets/images and src/assets/icons respectively. 
